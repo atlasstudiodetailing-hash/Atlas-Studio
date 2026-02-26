@@ -20,8 +20,7 @@
   }
 
 - { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
 
 body {
 background: var(–black);
@@ -31,912 +30,256 @@ overflow-x: hidden;
 cursor: none;
 }
 
+/* Kill ALL default blue link colors globally */
+a { color: inherit; text-decoration: none; }
+a:visited { color: inherit; }
+a:link { color: inherit; }
+
 /* Custom cursor */
-.cursor {
-position: fixed;
-width: 10px; height: 10px;
-background: var(–gold);
-border-radius: 50%;
-pointer-events: none;
-z-index: 9999;
-transform: translate(-50%, -50%);
-transition: transform 0.1s ease;
-}
-.cursor-ring {
-position: fixed;
-width: 36px; height: 36px;
-border: 1px solid var(–gold);
-border-radius: 50%;
-pointer-events: none;
-z-index: 9998;
-transform: translate(-50%, -50%);
-transition: all 0.18s ease;
-opacity: 0.6;
-}
+.cursor { position: fixed; width: 10px; height: 10px; background: var(–gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s ease; }
+.cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid var(–gold); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all 0.18s ease; opacity: 0.6; }
 
 /* NAV */
-nav {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 100;
-padding: 24px 48px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
-}
-
-.nav-logo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.1rem;
-font-weight: 400;
-letter-spacing: 0.3em;
-text-transform: uppercase;
-color: var(–white);
-text-decoration: none;
-}
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(to bottom,rgba(8,8,8,0.95),transparent); transition: background 0.4s; }
+.nav-logo { font-family: ‘Cormorant Garamond’,serif; font-size: 1.1rem; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: var(–white); }
 .nav-logo span { color: var(–gold); }
-
-.nav-links {
-display: flex;
-gap: 40px;
-list-style: none;
-}
-
-.nav-links a {
-color: var(–text-muted);
-text-decoration: none;
-font-size: 0.65rem;
-letter-spacing: 0.25em;
-text-transform: uppercase;
-font-weight: 500;
-transition: color 0.3s;
-}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { color: var(–text-muted); font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; transition: color 0.3s; }
 .nav-links a:hover { color: var(–gold); }
-
-.nav-cta {
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-font-weight: 600;
-color: var(–black);
-background: var(–gold);
-padding: 10px 24px;
-text-decoration: none;
-transition: background 0.3s, color 0.3s;
-}
-.nav-cta:hover { background: var(–gold-light); }
+.nav-cta { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(–black); background: var(–gold); padding: 10px 24px; transition: background 0.3s; display: inline-block; }
+.nav-cta:hover { background: var(–gold-light); color: var(–black); }
 
 /* HERO */
-#home {
-height: 100vh;
-position: relative;
-display: flex;
-align-items: center;
-overflow: hidden;
-}
-
-.hero-bg {
-position: absolute;
-inset: 0;
-background:
-radial-gradient(ellipse at 30% 60%, rgba(201,168,76,0.08) 0%, transparent 60%),
-linear-gradient(135deg, #080808 0%, #111 50%, #080808 100%);
-}
-
-/* Animated grid lines */
-.grid-lines {
-position: absolute;
-inset: 0;
-opacity: 0.06;
-background-image:
-linear-gradient(to right, var(–white) 1px, transparent 1px),
-linear-gradient(to bottom, var(–white) 1px, transparent 1px);
-background-size: 80px 80px;
-animation: gridShift 20s linear infinite;
-}
-@keyframes gridShift {
-0% { transform: translateY(0); }
-100% { transform: translateY(80px); }
-}
-
-.hero-content {
-position: relative;
-z-index: 2;
-padding: 0 8vw;
-max-width: 900px;
-}
-
-.hero-eyebrow {
-font-size: 0.6rem;
-letter-spacing: 0.4em;
-text-transform: uppercase;
-color: var(–gold);
-margin-bottom: 28px;
-display: flex;
-align-items: center;
-gap: 16px;
-opacity: 0;
-animation: fadeUp 1s 0.3s forwards;
-}
-.hero-eyebrow::before {
-content: ‘’;
-display: block;
-width: 40px;
-height: 1px;
-background: var(–gold);
-}
-
-.hero-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(3.5rem, 8vw, 7rem);
-font-weight: 300;
-line-height: 1.0;
-letter-spacing: -0.01em;
-margin-bottom: 32px;
-opacity: 0;
-animation: fadeUp 1s 0.5s forwards;
-}
-
-.hero-title em {
-font-style: italic;
-color: var(–gold);
-}
-
-.hero-sub {
-font-size: 0.7rem;
-letter-spacing: 0.25em;
-text-transform: uppercase;
-color: var(–text-muted);
-margin-bottom: 48px;
-line-height: 2;
-opacity: 0;
-animation: fadeUp 1s 0.7s forwards;
-}
-
-.hero-actions {
-display: flex;
-gap: 20px;
-align-items: center;
-opacity: 0;
-animation: fadeUp 1s 0.9s forwards;
-}
-
-.btn-primary {
-background: var(–gold);
-color: var(–black);
-padding: 16px 40px;
-font-size: 0.65rem;
-letter-spacing: 0.25em;
-text-transform: uppercase;
-font-weight: 700;
-text-decoration: none;
-transition: all 0.3s;
-position: relative;
-overflow: hidden;
-}
-.btn-primary::after {
-content: ‘’;
-position: absolute;
-inset: 0;
-background: var(–white);
-transform: scaleX(0);
-transform-origin: right;
-transition: transform 0.3s ease;
-}
-.btn-primary:hover::after { transform: scaleX(1); transform-origin: left; }
-.btn-primary span { position: relative; z-index: 1; }
-
-.btn-ghost {
-color: var(–white);
-padding: 16px 40px;
-font-size: 0.65rem;
-letter-spacing: 0.25em;
-text-transform: uppercase;
-font-weight: 500;
-text-decoration: none;
-border: 1px solid rgba(255,255,255,0.2);
-transition: all 0.3s;
-}
+#home { height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 60%,rgba(201,168,76,0.08) 0%,transparent 60%), linear-gradient(135deg,#080808 0%,#111 50%,#080808 100%); }
+.grid-lines { position: absolute; inset: 0; opacity: 0.06; background-image: linear-gradient(to right,var(–white) 1px,transparent 1px), linear-gradient(to bottom,var(–white) 1px,transparent 1px); background-size: 80px 80px; animation: gridShift 20s linear infinite; }
+@keyframes gridShift { 0% { transform: translateY(0); } 100% { transform: translateY(80px); } }
+.hero-content { position: relative; z-index: 2; padding: 0 8vw; max-width: 900px; }
+.hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(–gold); margin-bottom: 28px; display: flex; align-items: center; gap: 16px; opacity: 0; animation: fadeUp 1s 0.3s forwards; }
+.hero-eyebrow::before { content: ‘’; display: block; width: 40px; height: 1px; background: var(–gold); }
+.hero-title { font-family: ‘Cormorant Garamond’,serif; font-size: clamp(3.5rem,8vw,7rem); font-weight: 300; line-height: 1.0; margin-bottom: 32px; opacity: 0; animation: fadeUp 1s 0.5s forwards; }
+.hero-title em { font-style: italic; color: var(–gold); }
+.hero-sub { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(–text-muted); margin-bottom: 48px; line-height: 2; opacity: 0; animation: fadeUp 1s 0.7s forwards; }
+.hero-actions { display: flex; gap: 20px; align-items: center; opacity: 0; animation: fadeUp 1s 0.9s forwards; }
+.btn-primary { background: var(–gold); color: var(–black); padding: 16px 40px; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 700; transition: background 0.3s; display: inline-block; }
+.btn-primary:hover { background: var(–gold-light); color: var(–black); }
+.btn-ghost { color: var(–white); padding: 16px 40px; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s; display: inline-block; }
 .btn-ghost:hover { border-color: var(–gold); color: var(–gold); }
+.hero-scroll { position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeUp 1s 1.2s forwards; }
+.hero-scroll span { font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(–text-muted); }
+.scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom,var(–gold),transparent); animation: scrollPulse 2s ease-in-out infinite; }
+@keyframes scrollPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+.hero-float { position: absolute; right: 0; top: 0; width: 50%; height: 100%; overflow: hidden; opacity: 0; animation: fadeIn 1.5s 0.5s forwards; }
+.hero-float::before { content: ‘’; position: absolute; inset: 0; background: linear-gradient(to right,var(–black) 0%,transparent 40%); z-index: 1; }
+.hero-img-stack { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; }
+.hero-img-panel { background: var(–gray); overflow: hidden; position: relative; }
+.panel-1 { grid-column: 1/3; background: linear-gradient(135deg,#111 0%,#1a1a1a 50%,#0d0d0d 100%); }
+.panel-2 { background: linear-gradient(to br,#131313,#1c1c1c); }
+.panel-3 { background: linear-gradient(to br,#0f0f0f,#181818); }
+.panel-shine { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 40%,rgba(201,168,76,0.15) 0%,transparent 60%); }
+.car-art { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.hero-scroll {
-position: absolute;
-bottom: 48px;
-left: 50%;
-transform: translateX(-50%);
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 8px;
-opacity: 0;
-animation: fadeUp 1s 1.2s forwards;
-}
-.hero-scroll span {
-font-size: 0.55rem;
-letter-spacing: 0.3em;
-text-transform: uppercase;
-color: var(–text-muted);
-}
-.scroll-line {
-width: 1px;
-height: 48px;
-background: linear-gradient(to bottom, var(–gold), transparent);
-animation: scrollPulse 2s ease-in-out infinite;
-}
-@keyframes scrollPulse {
-0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
-50% { opacity: 1; transform: scaleY(1); }
-}
-
-.hero-float {
-position: absolute;
-right: 0;
-top: 0;
-width: 50%;
-height: 100%;
-overflow: hidden;
-opacity: 0;
-animation: fadeIn 1.5s 0.5s forwards;
-}
-
-.hero-float::before {
-content: ‘’;
-position: absolute;
-inset: 0;
-background: linear-gradient(to right, var(–black) 0%, transparent 40%, transparent 100%);
-z-index: 1;
-}
-
-.hero-img-stack {
-position: absolute;
-inset: 0;
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-template-rows: 1fr 1fr;
-gap: 2px;
-}
-
-.hero-img-panel {
-background: var(–gray);
-overflow: hidden;
-position: relative;
-}
-
-/* Fake luxury car silhouettes using CSS */
-.panel-1 {
-grid-column: 1 / 3;
-background: linear-gradient(135deg, #111 0%, #1a1a1a 50%, #0d0d0d 100%);
-}
-.panel-2 { background: linear-gradient(to br, #131313, #1c1c1c); }
-.panel-3 { background: linear-gradient(to br, #0f0f0f, #181818); }
-
-.panel-shine {
-position: absolute;
-inset: 0;
-background: radial-gradient(ellipse at 30% 40%, rgba(201,168,76,0.15) 0%, transparent 60%);
-}
-
-.car-svg {
-position: absolute;
-inset: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-opacity: 0.15;
-}
-
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(30px); }
-to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-
-/* STORY SECTION */
-#story {
-padding: 160px 8vw;
-position: relative;
-}
-
-.story-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 80px;
-align-items: center;
-}
-
-.story-label {
-font-size: 0.6rem;
-letter-spacing: 0.4em;
-text-transform: uppercase;
-color: var(–gold);
-margin-bottom: 24px;
-display: flex;
-align-items: center;
-gap: 16px;
-}
-.story-label::before {
-content: ‘’;
-display: block;
-width: 40px;
-height: 1px;
-background: var(–gold);
-}
-
-.story-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(2.5rem, 4vw, 3.5rem);
-font-weight: 300;
-line-height: 1.15;
-margin-bottom: 32px;
-}
-
-.story-title em { font-style: italic; color: var(–gold); }
-
-.story-text {
-font-size: 0.8rem;
-line-height: 2;
-color: var(–text-muted);
-margin-bottom: 24px;
-font-weight: 300;
-}
-
-.story-stats {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-gap: 24px;
-margin-top: 48px;
-padding-top: 48px;
-border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-.stat-number {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 2.5rem;
-font-weight: 300;
-color: var(–gold);
-display: block;
-line-height: 1;
-margin-bottom: 8px;
-}
-.stat-label {
-font-size: 0.6rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: var(–text-muted);
-}
-
-.story-visual {
-position: relative;
-}
-
-.story-img-main {
-width: 100%;
-aspect-ratio: 3/4;
-background: linear-gradient(135deg, #1a1a1a, #111);
-position: relative;
-overflow: hidden;
-}
-
-.story-img-accent {
-position: absolute;
-bottom: -40px;
-left: -40px;
-width: 60%;
-aspect-ratio: 4/3;
-background: linear-gradient(135deg, #131313, #1c1c1c);
-border: 4px solid var(–black);
-}
-
-.gold-border {
-position: absolute;
-top: 24px;
-right: -24px;
-width: 100%;
-height: 100%;
-border: 1px solid var(–gold);
-opacity: 0.3;
-pointer-events: none;
-}
-
-/* Services strip */
-.services-strip {
-padding: 80px 0;
-border-top: 1px solid rgba(255,255,255,0.05);
-border-bottom: 1px solid rgba(255,255,255,0.05);
-overflow: hidden;
-position: relative;
-}
-
-.services-track {
-display: flex;
-gap: 60px;
-animation: marquee 20s linear infinite;
-white-space: nowrap;
-}
-
-.service-item {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 2rem;
-font-weight: 300;
-color: var(–gray-mid);
-display: flex;
-align-items: center;
-gap: 30px;
-flex-shrink: 0;
-}
-
+/* MARQUEE */
+.services-strip { padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); overflow: hidden; }
+.services-track { display: flex; gap: 60px; animation: marquee 22s linear infinite; white-space: nowrap; }
+.service-item { font-family: ‘Cormorant Garamond’,serif; font-size: 2rem; font-weight: 300; color: var(–gray-mid); display: flex; align-items: center; gap: 30px; flex-shrink: 0; }
 .service-item.highlight { color: var(–white); }
+.service-dot { width: 6px; height: 6px; background: var(–gold); border-radius: 50%; flex-shrink: 0; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-.service-dot {
-width: 6px;
-height: 6px;
-background: var(–gold);
-border-radius: 50%;
-flex-shrink: 0;
-}
+/* SHARED */
+.section-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(–gold); margin-bottom: 16px; display: flex; align-items: center; gap: 16px; }
+.section-label::before { content: ‘’; display: block; width: 40px; height: 1px; background: var(–gold); }
+.section-title { font-family: ‘Cormorant Garamond’,serif; font-size: clamp(2.5rem,4vw,3.5rem); font-weight: 300; line-height: 1.1; }
+.section-title em { font-style: italic; color: var(–gold); }
+.section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 80px; }
+.body-text { font-size: 0.8rem; line-height: 2; color: var(–text-muted); margin-bottom: 24px; font-weight: 300; }
 
-@keyframes marquee {
-0% { transform: translateX(0); }
-100% { transform: translateX(-50%); }
-}
+/* STORY */
+#story { padding: 160px 8vw; }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.story-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(–gold); margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+.story-label::before { content: ‘’; display: block; width: 40px; height: 1px; background: var(–gold); }
+.story-title { font-family: ‘Cormorant Garamond’,serif; font-size: clamp(2.5rem,4vw,3.5rem); font-weight: 300; line-height: 1.15; margin-bottom: 32px; }
+.story-title em { font-style: italic; color: var(–gold); }
+.story-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 48px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.08); }
+.stat-number { font-family: ‘Cormorant Garamond’,serif; font-size: 2.5rem; font-weight: 300; color: var(–gold); display: block; line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–text-muted); }
+.story-visual { position: relative; }
+.story-img-main { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg,#1a1a1a,#111); position: relative; overflow: hidden; }
+.story-img-accent { position: absolute; bottom: -40px; left: -40px; width: 60%; aspect-ratio: 4/3; background: linear-gradient(135deg,#131313,#1c1c1c); border: 4px solid var(–black); }
+.gold-border { position: absolute; top: 24px; right: -24px; width: 100%; height: 100%; border: 1px solid var(–gold); opacity: 0.3; pointer-events: none; }
 
 /* GALLERY */
-#gallery {
-padding: 160px 8vw;
-}
-
-.section-header {
-display: flex;
-justify-content: space-between;
-align-items: flex-end;
-margin-bottom: 80px;
-}
-
-.section-label {
-font-size: 0.6rem;
-letter-spacing: 0.4em;
-text-transform: uppercase;
-color: var(–gold);
-margin-bottom: 16px;
-display: flex;
-align-items: center;
-gap: 16px;
-}
-.section-label::before {
-content: ‘’;
-display: block;
-width: 40px;
-height: 1px;
-background: var(–gold);
-}
-
-.section-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(2.5rem, 4vw, 3.5rem);
-font-weight: 300;
-line-height: 1.1;
-}
-
-.section-title em { font-style: italic; color: var(–gold); }
-
-.gallery-filter {
-display: flex;
-gap: 24px;
-}
-
-.filter-btn {
-font-size: 0.6rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: var(–text-muted);
-background: none;
-border: none;
-cursor: none;
-padding: 8px 0;
-border-bottom: 1px solid transparent;
-transition: all 0.3s;
-font-family: ‘Montserrat’, sans-serif;
-}
-.filter-btn:hover, .filter-btn.active {
-color: var(–gold);
-border-bottom-color: var(–gold);
-}
-
-.gallery-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-auto-rows: 300px;
-gap: 3px;
-}
-
-.gallery-item {
-position: relative;
-overflow: hidden;
-cursor: none;
-}
-
-.gallery-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
-.gallery-item:nth-child(4) { grid-column: 2 / 4; }
-
-.gallery-bg {
-width: 100%;
-height: 100%;
-transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* CSS art car panels for gallery */
-.g1 { background: linear-gradient(135deg, #1a1a1a 0%, #222 40%, #111 100%); }
-.g2 { background: linear-gradient(to br, #161616, #1e1e1e); }
-.g3 { background: linear-gradient(135deg, #0f0f0f, #1a1a1a); }
-.g4 { background: linear-gradient(to br, #181818, #232323); }
-.g5 { background: linear-gradient(135deg, #121212, #1c1c1c); }
-.g6 { background: linear-gradient(to br, #141414, #1f1f1f); }
-
-.g-shine {
-position: absolute;
-inset: 0;
-background: radial-gradient(ellipse at 40% 30%, rgba(201,168,76,0.12) 0%, transparent 65%);
-}
-
-.g-label {
-position: absolute;
-inset: 0;
-display: flex;
-flex-direction: column;
-justify-content: flex-end;
-padding: 32px;
-background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
-opacity: 0;
-transition: opacity 0.4s;
-}
-
+#gallery { padding: 160px 8vw; }
+.gallery-filter { display: flex; gap: 24px; }
+.filter-btn { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–text-muted); background: none; border: none; cursor: none; padding: 8px 0; border-bottom: 1px solid transparent; transition: all 0.3s; font-family: ‘Montserrat’,sans-serif; }
+.filter-btn:hover, .filter-btn.active { color: var(–gold); border-bottom-color: var(–gold); }
+.gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); grid-auto-rows: 300px; gap: 3px; }
+.gallery-item { position: relative; overflow: hidden; cursor: none; }
+.gallery-item:nth-child(1) { grid-column: 1/3; grid-row: 1/3; }
+.gallery-item:nth-child(4) { grid-column: 2/4; }
+.gallery-bg { width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+.g1 { background: linear-gradient(135deg,#1a1a1a 0%,#222 40%,#111 100%); }
+.g2 { background: linear-gradient(to br,#161616,#1e1e1e); }
+.g3 { background: linear-gradient(135deg,#0f0f0f,#1a1a1a); }
+.g4 { background: linear-gradient(to br,#181818,#232323); }
+.g5 { background: linear-gradient(135deg,#121212,#1c1c1c); }
+.g6 { background: linear-gradient(to br,#141414,#1f1f1f); }
+.g-shine { position: absolute; inset: 0; background: radial-gradient(ellipse at 40% 30%,rgba(201,168,76,0.12) 0%,transparent 65%); }
+.g-label { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px; background: linear-gradient(to top,rgba(0,0,0,0.8) 0%,transparent 60%); opacity: 0; transition: opacity 0.4s; }
 .gallery-item:hover .g-label { opacity: 1; }
 .gallery-item:hover .gallery-bg { transform: scale(1.05); }
+.g-tag { font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(–gold); margin-bottom: 8px; }
+.g-title { font-family: ‘Cormorant Garamond’,serif; font-size: 1.4rem; font-weight: 300; color: var(–white); }
+.gallery-note { margin-top: 48px; text-align: center; }
+.gallery-note p { font-size: 0.7rem; color: var(–text-muted); letter-spacing: 0.1em; margin-bottom: 16px; }
+.gallery-note a { color: var(–gold); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; }
 
-.g-tag {
-font-size: 0.55rem;
-letter-spacing: 0.3em;
-text-transform: uppercase;
-color: var(–gold);
-margin-bottom: 8px;
-}
+/* CONTENT / YOUTUBE */
+#content { padding: 160px 8vw; background: linear-gradient(180deg,var(–black) 0%,#0d0d0d 50%,var(–black) 100%); position: relative; }
+#content::before { content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right,transparent,var(–gold),transparent); }
+.content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.content-philosophy { margin-top: 40px; padding: 32px; border-left: 2px solid var(–gold); background: rgba(201,168,76,0.04); }
+.philosophy-quote { font-family: ‘Cormorant Garamond’,serif; font-size: 1.4rem; font-weight: 300; font-style: italic; line-height: 1.5; color: var(–white); margin-bottom: 12px; }
+.philosophy-attr { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(–gold); }
+.video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+.video-card { position: relative; aspect-ratio: 16/9; background: var(–gray); overflow: hidden; cursor: none; transition: transform 0.3s; }
+.video-card:first-child { grid-column: 1/3; aspect-ratio: 16/7; }
+.video-card:hover { transform: scale(0.99); }
+.video-bg { position: absolute; inset: 0; background: linear-gradient(135deg,#1a1a1a,#111); }
+.video-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); transition: background 0.3s; }
+.video-card:hover .video-play { background: rgba(0,0,0,0.1); }
+.play-btn { width: 56px; height: 56px; border: 1px solid rgba(201,168,76,0.6); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(201,168,76,0.1); transition: all 0.3s; backdrop-filter: blur(4px); }
+.video-card:hover .play-btn { background: var(–gold); border-color: var(–gold); }
+.play-triangle { width: 0; height: 0; border-style: solid; border-width: 9px 0 9px 18px; border-color: transparent transparent transparent var(–gold); margin-left: 4px; transition: border-color 0.3s; }
+.video-card:hover .play-triangle { border-color: transparent transparent transparent var(–black); }
+.video-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px; background: linear-gradient(to top,rgba(0,0,0,0.9),transparent); }
+.video-tag { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(–gold); margin-bottom: 6px; }
+.video-title { font-family: ‘Cormorant Garamond’,serif; font-size: 1.1rem; font-weight: 300; color: var(–white); }
+.video-cta { margin-top: 40px; display: flex; align-items: center; gap: 24px; }
+.youtube-sub { font-size: 0.65rem; letter-spacing: 0.15em; color: var(–text-muted); }
 
-.g-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.4rem;
-font-weight: 300;
-}
-
-/* Placeholder art for gallery items */
-.car-art {
-position: absolute;
-inset: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
-}
-
-/* Gallery note */
-.gallery-note {
-margin-top: 48px;
-text-align: center;
-}
-
-.gallery-note p {
-font-size: 0.7rem;
-color: var(–text-muted);
-letter-spacing: 0.1em;
-margin-bottom: 16px;
-}
+/* SHOP */
+#shop { padding: 160px 8vw; position: relative; }
+#shop::before { content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right,transparent,var(–gold),transparent); }
+.shop-intro { max-width: 600px; margin-bottom: 80px; }
+.shop-categories { display: flex; gap: 0; margin-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.08); overflow-x: auto; }
+.shop-cat-btn { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(–text-muted); background: none; border: none; padding: 16px 28px; cursor: none; font-family: ‘Montserrat’,sans-serif; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.3s; white-space: nowrap; }
+.shop-cat-btn.active { color: var(–gold); border-bottom-color: var(–gold); }
+.shop-cat-btn:hover { color: var(–white); }
+.shop-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
+.product-card { background: var(–gray); position: relative; overflow: hidden; cursor: none; transition: transform 0.3s; }
+.product-card:hover { transform: translateY(-4px); }
+.product-img { aspect-ratio: 1; position: relative; overflow: hidden; background: linear-gradient(135deg,#1a1a1a,#111); }
+.product-img-bg { position: absolute; inset: 0; transition: transform 0.5s ease; }
+.product-card:hover .product-img-bg { transform: scale(1.06); }
+.product-shine { position: absolute; inset: 0; background: radial-gradient(ellipse at 40% 35%,rgba(201,168,76,0.15) 0%,transparent 65%); }
+.product-badge { position: absolute; top: 16px; right: 16px; font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; background: var(–gold); color: var(–black); padding: 5px 10px; font-weight: 700; }
+.product-icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0.12; font-size: 4rem; }
+.product-info { padding: 24px; border-top: 1px solid rgba(255,255,255,0.05); }
+.product-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(–gold); margin-bottom: 8px; }
+.product-name { font-family: ‘Cormorant Garamond’,serif; font-size: 1.1rem; font-weight: 300; color: var(–white); margin-bottom: 6px; }
+.product-desc { font-size: 0.62rem; color: var(–text-muted); line-height: 1.6; margin-bottom: 16px; }
+.product-footer { display: flex; align-items: center; justify-content: space-between; }
+.product-price { font-family: ‘Cormorant Garamond’,serif; font-size: 1.3rem; color: var(–gold); font-weight: 300; }
+.product-btn { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; background: none; border: 1px solid rgba(201,168,76,0.4); color: var(–gold); padding: 8px 14px; cursor: none; font-family: ‘Montserrat’,sans-serif; transition: all 0.3s; }
+.product-btn:hover { background: var(–gold); color: var(–black); }
+.shop-note { margin-top: 48px; padding: 32px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.shop-note-text { font-size: 0.7rem; color: var(–text-muted); line-height: 1.8; font-weight: 300; }
+.shop-note-text strong { color: var(–white); font-weight: 500; }
 
 /* BOOKING */
-#booking {
-padding: 160px 8vw;
-background: linear-gradient(180deg, var(–black), var(–gray) 50%, var(–black));
-position: relative;
-}
-
-#booking::before {
-content: ‘’;
-position: absolute;
-top: 0; left: 0; right: 0;
-height: 1px;
-background: linear-gradient(to right, transparent, var(–gold), transparent);
-}
-
-.booking-inner {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 80px;
-align-items: start;
-}
-
-.booking-info {
-position: sticky;
-top: 120px;
-}
-
-.packages {
-margin-top: 48px;
-display: flex;
-flex-direction: column;
-gap: 2px;
-}
-
-.package {
-padding: 24px;
-border: 1px solid rgba(255,255,255,0.06);
-display: flex;
-justify-content: space-between;
-align-items: center;
-transition: all 0.3s;
-cursor: none;
-}
-
-.package:hover {
-border-color: var(–gold);
-background: rgba(201,168,76,0.05);
-}
-
-.pkg-name {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.1rem;
-margin-bottom: 4px;
-}
-
-.pkg-desc {
-font-size: 0.6rem;
-letter-spacing: 0.1em;
-color: var(–text-muted);
-}
-
-.pkg-price {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.5rem;
-color: var(–gold);
-font-weight: 300;
-}
-
-/* Form */
-.booking-form {
-background: rgba(255,255,255,0.02);
-border: 1px solid rgba(255,255,255,0.06);
-padding: 48px;
-}
-
-.form-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.8rem;
-font-weight: 300;
-margin-bottom: 8px;
-}
-
-.form-sub {
-font-size: 0.6rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: var(–text-muted);
-margin-bottom: 40px;
-}
-
-.form-group {
-margin-bottom: 24px;
-}
-
-.form-group label {
-display: block;
-font-size: 0.6rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: var(–text-muted);
-margin-bottom: 10px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-width: 100%;
-background: rgba(255,255,255,0.03);
-border: 1px solid rgba(255,255,255,0.1);
-color: var(–white);
-padding: 14px 18px;
-font-family: ‘Montserrat’, sans-serif;
-font-size: 0.75rem;
-outline: none;
-transition: border-color 0.3s;
-appearance: none;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-border-color: var(–gold);
-}
-
-.form-group select option { background: #1a1a1a; }
-
+#booking { padding: 160px 8vw; background: linear-gradient(180deg,var(–black),var(–gray) 50%,var(–black)); position: relative; }
+#booking::before { content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right,transparent,var(–gold),transparent); }
+.booking-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.booking-info { position: sticky; top: 120px; }
+.packages { margin-top: 48px; display: flex; flex-direction: column; gap: 2px; }
+.package { padding: 24px; border: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; transition: all 0.3s; cursor: none; }
+.package:hover { border-color: var(–gold); background: rgba(201,168,76,0.05); }
+.pkg-name { font-family: ‘Cormorant Garamond’,serif; font-size: 1.1rem; margin-bottom: 4px; color: var(–white); }
+.pkg-desc { font-size: 0.6rem; letter-spacing: 0.1em; color: var(–text-muted); }
+.pkg-price { font-family: ‘Cormorant Garamond’,serif; font-size: 1.5rem; color: var(–gold); font-weight: 300; }
+.contact-box { margin-top: 40px; padding: 24px; border: 1px solid rgba(201,168,76,0.3); background: rgba(201,168,76,0.04); }
+.contact-box-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–gold); margin-bottom: 8px; }
+.contact-box-number { font-family: ‘Cormorant Garamond’,serif; font-size: 2rem; color: var(–white); font-weight: 300; display: block; }
+.booking-form { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 48px; }
+.form-title { font-family: ‘Cormorant Garamond’,serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 8px; color: var(–white); }
+.form-sub { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–text-muted); margin-bottom: 40px; }
+.form-group { margin-bottom: 24px; }
+.form-group label { display: block; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–text-muted); margin-bottom: 10px; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: var(–white); padding: 14px 18px; font-family: ‘Montserrat’,sans-serif; font-size: 0.75rem; outline: none; transition: border-color 0.3s; appearance: none; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(–gold); }
+.form-group select option { background: #1a1a1a; color: var(–white); }
 .form-group textarea { resize: vertical; min-height: 100px; }
-
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-.form-submit {
-width: 100%;
-background: var(–gold);
-color: var(–black);
-border: none;
-padding: 18px;
-font-family: ‘Montserrat’, sans-serif;
-font-size: 0.65rem;
-letter-spacing: 0.3em;
-text-transform: uppercase;
-font-weight: 700;
-cursor: none;
-transition: background 0.3s;
-margin-top: 8px;
-}
-
+.form-submit { width: 100%; background: var(–gold); color: var(–black); border: none; padding: 18px; font-family: ‘Montserrat’,sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 700; cursor: none; transition: background 0.3s; margin-top: 8px; }
 .form-submit:hover { background: var(–gold-light); }
-
-.form-note {
-font-size: 0.6rem;
-color: var(–text-muted);
-text-align: center;
-margin-top: 16px;
-letter-spacing: 0.1em;
-}
+.form-note { font-size: 0.6rem; color: var(–text-muted); text-align: center; margin-top: 16px; letter-spacing: 0.1em; }
+.success-msg { display: none; text-align: center; padding: 48px; }
+.success-msg.show { display: block; }
+.success-icon { font-size: 2rem; color: var(–gold); margin-bottom: 16px; }
 
 /* FOOTER */
-footer {
-border-top: 1px solid rgba(255,255,255,0.06);
-padding: 80px 8vw 48px;
-}
-
-.footer-grid {
-display: grid;
-grid-template-columns: 2fr 1fr 1fr;
-gap: 80px;
-margin-bottom: 80px;
-}
-
-.footer-brand-name {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.8rem;
-font-weight: 300;
-margin-bottom: 16px;
-}
+footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 80px 8vw 48px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 80px; }
+.footer-brand-name { font-family: ‘Cormorant Garamond’,serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 16px; color: var(–white); }
 .footer-brand-name span { color: var(–gold); }
-
-.footer-tagline {
-font-size: 0.7rem;
-color: var(–text-muted);
-line-height: 1.8;
-max-width: 280px;
-margin-bottom: 32px;
-font-weight: 300;
-}
-
-.footer-contact-item {
-display: flex;
-align-items: center;
-gap: 12px;
-font-size: 0.7rem;
-color: var(–text-muted);
-margin-bottom: 12px;
-text-decoration: none;
-transition: color 0.3s;
-}
+.footer-tagline { font-size: 0.7rem; color: var(–text-muted); line-height: 1.8; max-width: 280px; margin-bottom: 32px; font-weight: 300; }
+.footer-contact-item { display: flex; align-items: center; gap: 12px; font-size: 0.7rem; color: var(–text-muted); margin-bottom: 12px; transition: color 0.3s; }
 .footer-contact-item:hover { color: var(–gold); }
-
-.footer-contact-icon {
-width: 32px;
-height: 32px;
-border: 1px solid rgba(255,255,255,0.1);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 0.7rem;
-flex-shrink: 0;
-}
-
-.footer-col-title {
-font-size: 0.6rem;
-letter-spacing: 0.3em;
-text-transform: uppercase;
-color: var(–gold);
-margin-bottom: 28px;
-}
-
-.footer-links {
-list-style: none;
-display: flex;
-flex-direction: column;
-gap: 14px;
-}
-
-.footer-links a {
-font-size: 0.75rem;
-color: var(–text-muted);
-text-decoration: none;
-transition: color 0.3s;
-font-weight: 300;
-}
+.footer-contact-icon { width: 32px; height: 32px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0; }
+.footer-col-title { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(–gold); margin-bottom: 28px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.footer-links a { font-size: 0.75rem; color: var(–text-muted); transition: color 0.3s; font-weight: 300; }
 .footer-links a:hover { color: var(–white); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-copy { font-size: 0.6rem; color: var(–text-muted); letter-spacing: 0.15em; }
+.footer-phone { font-family: ‘Cormorant Garamond’,serif; font-size: 1.3rem; color: var(–gold); letter-spacing: 0.05em; }
 
-.footer-bottom {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding-top: 40px;
-border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.footer-copy {
-font-size: 0.6rem;
-color: var(–text-muted);
-letter-spacing: 0.15em;
-}
-
-.footer-phone {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.3rem;
-color: var(–gold);
-text-decoration: none;
-letter-spacing: 0.05em;
-}
-
-/* Success message */
-.success-msg {
-display: none;
-text-align: center;
-padding: 48px;
-}
-.success-msg.show { display: block; }
-.success-icon {
-font-size: 2rem;
-color: var(–gold);
-margin-bottom: 16px;
-}
-
-/* Responsive */
+/* RESPONSIVE */
+@media (max-width: 1100px) { .shop-grid { grid-template-columns: repeat(2,1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 900px) {
 nav { padding: 20px 24px; }
 .nav-links { display: none; }
 .hero-float { display: none; }
 .hero-content { max-width: 100%; padding: 0 24px; }
-.story-grid, .booking-inner, .footer-grid { grid-template-columns: 1fr; gap: 48px; }
+.story-grid, .booking-inner, .content-grid { grid-template-columns: 1fr; gap: 48px; }
 .gallery-grid { grid-template-columns: 1fr 1fr; }
 .gallery-item:nth-child(1) { grid-column: 1; grid-row: 1; }
 .gallery-item:nth-child(4) { grid-column: 1; }
 .booking-info { position: static; }
-#home, #gallery, #story, #booking { padding: 100px 24px; }
+#home, #gallery, #story, #booking, #shop, #content { padding: 100px 24px; }
 .section-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+.video-grid { grid-template-columns: 1fr; }
+.video-card:first-child { grid-column: 1; }
+.shop-note { flex-direction: column; }
+.footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
+@media (max-width: 500px) { .shop-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
 </style>
 
 </head>
 <body>
-
-<!-- Custom Cursor -->
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
 <!-- NAV -->
 
-<nav>
+<nav id="mainNav">
   <a href="#home" class="nav-logo">Atlas <span>Studio</span> Detailing</a>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
-    <li><a href="#story">Our Story</a></li>
+    <li><a href="#story">Story</a></li>
     <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#content">Content</a></li>
+    <li><a href="#shop">Shop</a></li>
     <li><a href="#booking">Booking</a></li>
   </ul>
-  <a href="#booking" class="nav-cta"><span>Book Now</span></a>
+  <a href="sms:7027633539?&body=Hey%2C%20I%27d%20like%20to%20book%20a%20detail%20with%20Atlas%20Studio." class="nav-cta">Book Now</a>
 </nav>
 
 <!-- HERO -->
@@ -944,22 +287,15 @@ nav { padding: 20px 24px; }
 <section id="home">
   <div class="hero-bg"></div>
   <div class="grid-lines"></div>
-
   <div class="hero-content">
     <div class="hero-eyebrow">Las Vegas · Mobile Detailing</div>
-    <h1 class="hero-title">
-      Where Craft<br>Meets <em>Obsession</em>
-    </h1>
-    <p class="hero-sub">
-      Mobile Interior Restoration &amp; Paint Correction<br>
-      Serving Las Vegas — We Come To You
-    </p>
+    <h1 class="hero-title">Where Craft<br>Meets <em>Obsession</em></h1>
+    <p class="hero-sub">Mobile Interior Restoration &amp; Paint Correction<br>Serving Las Vegas — We Come To You</p>
     <div class="hero-actions">
-      <a href="#booking" class="btn-primary"><span>Book A Detail</span></a>
+      <a href="sms:7027633539?&body=Hey%2C%20I%27d%20like%20to%20book%20a%20detail." class="btn-primary">Book A Detail</a>
       <a href="#gallery" class="btn-ghost">View Our Work</a>
     </div>
   </div>
-
   <div class="hero-float">
     <div class="hero-img-stack">
       <div class="hero-img-panel panel-1">
@@ -968,66 +304,39 @@ nav { padding: 20px 24px; }
           <ellipse cx="200" cy="140" rx="180" ry="20" fill="rgba(201,168,76,0.3)"/>
           <path d="M40 130 Q80 80 150 70 Q200 60 250 70 Q320 80 360 130 Z" fill="rgba(201,168,76,0.5)" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
           <path d="M100 100 Q130 65 170 60 Q230 55 270 62 Q310 70 330 100 Z" fill="rgba(201,168,76,0.3)"/>
-          <line x1="40" y1="130" x2="360" y2="130" stroke="rgba(201,168,76,0.6)" stroke-width="1"/>
           <circle cx="110" cy="140" r="22" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="2"/>
           <circle cx="110" cy="140" r="10" fill="rgba(201,168,76,0.3)"/>
           <circle cx="290" cy="140" r="22" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="2"/>
           <circle cx="290" cy="140" r="10" fill="rgba(201,168,76,0.3)"/>
         </svg>
       </div>
-      <div class="hero-img-panel panel-2">
-        <div class="panel-shine"></div>
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(201,168,76,0.2) 0%,transparent 60%)"></div>
-      </div>
-      <div class="hero-img-panel panel-3">
-        <div class="panel-shine" style="background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,0.1) 0%,transparent 60%)"></div>
-      </div>
+      <div class="hero-img-panel panel-2"><div class="panel-shine"></div></div>
+      <div class="hero-img-panel panel-3"><div class="panel-shine" style="background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,0.1) 0%,transparent 60%)"></div></div>
     </div>
   </div>
-
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
 
-<!-- SERVICES MARQUEE -->
+<!-- MARQUEE -->
 
 <div class="services-strip">
   <div class="services-track">
-    <div class="service-item highlight">Paint Correction</div>
-    <div class="service-dot"></div>
-    <div class="service-item">Interior Restoration</div>
-    <div class="service-dot"></div>
-    <div class="service-item highlight">Ceramic Coating</div>
-    <div class="service-dot"></div>
-    <div class="service-item">Engine Bay Detailing</div>
-    <div class="service-dot"></div>
-    <div class="service-item highlight">Leather Conditioning</div>
-    <div class="service-dot"></div>
-    <div class="service-item">Odor Elimination</div>
-    <div class="service-dot"></div>
-    <div class="service-item highlight">Full Interior Detail</div>
-    <div class="service-dot"></div>
-    <div class="service-item">Headlight Restoration</div>
-    <div class="service-dot"></div>
-    <!-- Duplicate for seamless loop -->
-    <div class="service-item highlight">Paint Correction</div>
-    <div class="service-dot"></div>
-    <div class="service-item">Interior Restoration</div>
-    <div class="service-dot"></div>
-    <div class="service-item highlight">Ceramic Coating</div>
-    <div class="service-dot"></div>
-    <div class="service-item">Engine Bay Detailing</div>
-    <div class="service-dot"></div>
-    <div class="service-item highlight">Leather Conditioning</div>
-    <div class="service-dot"></div>
-    <div class="service-item">Odor Elimination</div>
-    <div class="service-dot"></div>
-    <div class="service-item highlight">Full Interior Detail</div>
-    <div class="service-dot"></div>
-    <div class="service-item">Headlight Restoration</div>
-    <div class="service-dot"></div>
+    <div class="service-item highlight">Paint Correction</div><div class="service-dot"></div>
+    <div class="service-item">Interior Restoration</div><div class="service-dot"></div>
+    <div class="service-item highlight">Ceramic Coating</div><div class="service-dot"></div>
+    <div class="service-item">Engine Bay Detailing</div><div class="service-dot"></div>
+    <div class="service-item highlight">Leather Conditioning</div><div class="service-dot"></div>
+    <div class="service-item">Odor Elimination</div><div class="service-dot"></div>
+    <div class="service-item highlight">Full Interior Detail</div><div class="service-dot"></div>
+    <div class="service-item">Headlight Restoration</div><div class="service-dot"></div>
+    <div class="service-item highlight">Paint Correction</div><div class="service-dot"></div>
+    <div class="service-item">Interior Restoration</div><div class="service-dot"></div>
+    <div class="service-item highlight">Ceramic Coating</div><div class="service-dot"></div>
+    <div class="service-item">Engine Bay Detailing</div><div class="service-dot"></div>
+    <div class="service-item highlight">Leather Conditioning</div><div class="service-dot"></div>
+    <div class="service-item">Odor Elimination</div><div class="service-dot"></div>
+    <div class="service-item highlight">Full Interior Detail</div><div class="service-dot"></div>
+    <div class="service-item">Headlight Restoration</div><div class="service-dot"></div>
   </div>
 </div>
 
@@ -1035,49 +344,29 @@ nav { padding: 20px 24px; }
 
 <section id="story">
   <div class="story-grid">
-    <div class="story-text-col">
+    <div>
       <div class="story-label">Our Story</div>
       <h2 class="story-title">Born From a<br><em>Passion</em> for<br>Perfection</h2>
-      <p class="story-text">Atlas Studio Detailing isn't just a service — it's a standard. Built in Las Vegas by someone who believes every vehicle deserves the same obsessive attention to detail, regardless of where it sits in your driveway.</p>
-      <p class="story-text">We bring studio-quality results directly to you. No shop. No waiting. Just a craftsman, the right tools, and an unwavering commitment to transforming your vehicle inside and out.</p>
-      <p class="story-text">Every swirl removed, every leather surface conditioned, every paint panel corrected — it's not just cleaning, it's restoration. This is how we work, every single time.</p>
-
-```
-  <div class="story-stats">
-    <div>
-      <span class="stat-number">100%</span>
-      <span class="stat-label">Mobile Service</span>
+      <p class="body-text">Atlas Studio Detailing isn't just a service — it's a standard. Built in Las Vegas by someone who believes every vehicle deserves the same obsessive attention to detail, regardless of where it sits in your driveway.</p>
+      <p class="body-text">We bring studio-quality results directly to you. No shop. No waiting. Just a craftsman, the right tools, and an unwavering commitment to transforming your vehicle inside and out.</p>
+      <p class="body-text">Every swirl removed, every leather surface conditioned, every panel corrected — this is how we work, every single time.</p>
+      <div class="story-stats">
+        <div><span class="stat-number">100%</span><span class="stat-label">Mobile Service</span></div>
+        <div><span class="stat-number">5★</span><span class="stat-label">Client Rated</span></div>
+        <div><span class="stat-number">LV</span><span class="stat-label">Las Vegas Based</span></div>
+      </div>
     </div>
-    <div>
-      <span class="stat-number">5★</span>
-      <span class="stat-label">Client Rated</span>
+    <div class="story-visual">
+      <div class="story-img-main">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a1a1a,#111 50%,#1c1c1c)"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(201,168,76,0.15) 0%,transparent 65%)"></div>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.06;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:8rem;color:var(--gold);font-weight:300;">A</div>
+        </div>
+      </div>
+      <div class="story-img-accent"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 40% 40%,rgba(201,168,76,0.12) 0%,transparent 60%);"></div></div>
+      <div class="gold-border"></div>
     </div>
-    <div>
-      <span class="stat-number">LV</span>
-      <span class="stat-label">Las Vegas Based</span>
-    </div>
-  </div>
-</div>
-
-<div class="story-visual">
-  <div class="story-img-main">
-    <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a1a1a,#111 50%,#1c1c1c)"></div>
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(201,168,76,0.15) 0%,transparent 65%)"></div>
-    <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.12;">
-      <path d="M50 280 Q100 200 150 180 Q200 160 250 200 L250 350 L50 350 Z" fill="rgba(201,168,76,0.5)" stroke="rgba(201,168,76,0.6)" stroke-width="1"/>
-      <path d="M80 230 Q120 190 160 180 Q200 172 240 195 L240 270 L80 270 Z" fill="rgba(201,168,76,0.2)"/>
-    </svg>
-    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.06;">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:8rem;color:var(--gold);font-weight:300;">A</div>
-    </div>
-  </div>
-  <div class="story-img-accent">
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 40% 40%,rgba(201,168,76,0.12) 0%,transparent 60%);"></div>
-  </div>
-  <div class="gold-border"></div>
-</div>
-```
-
   </div>
 </section>
 
@@ -1090,101 +379,133 @@ nav { padding: 20px 24px; }
       <h2 class="section-title">The <em>Details</em><br>Say Everything</h2>
     </div>
     <div class="gallery-filter">
-      <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
-      <button class="filter-btn" onclick="filterGallery('paint', this)">Paint</button>
-      <button class="filter-btn" onclick="filterGallery('interior', this)">Interior</button>
-      <button class="filter-btn" onclick="filterGallery('full', this)">Full Detail</button>
+      <button class="filter-btn active" onclick="filterGallery('all',this)">All</button>
+      <button class="filter-btn" onclick="filterGallery('paint',this)">Paint</button>
+      <button class="filter-btn" onclick="filterGallery('interior',this)">Interior</button>
+      <button class="filter-btn" onclick="filterGallery('full',this)">Full Detail</button>
     </div>
   </div>
-
   <div class="gallery-grid" id="galleryGrid">
     <div class="gallery-item" data-cat="paint">
-      <div class="gallery-bg g1">
-        <div class="g-shine"></div>
-        <div class="car-art">
-          <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" style="width:90%;height:90%;opacity:0.18;">
-            <path d="M60 200 Q120 130 200 110 Q280 90 360 130 Q420 155 460 200 Z" fill="rgba(201,168,76,0.6)" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
-            <path d="M120 155 Q170 110 230 100 Q290 92 350 118 Q400 140 430 170 Z" fill="rgba(201,168,76,0.25)"/>
-            <circle cx="145" cy="215" r="35" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="2"/>
-            <circle cx="145" cy="215" r="15" fill="rgba(201,168,76,0.2)"/>
-            <circle cx="385" cy="215" r="35" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="2"/>
-            <circle cx="385" cy="215" r="15" fill="rgba(201,168,76,0.2)"/>
-            <line x1="60" y1="200" x2="460" y2="200" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
-          </svg>
-        </div>
-      </div>
-      <div class="g-label">
-        <div class="g-tag">Paint Correction</div>
-        <div class="g-title">2-Stage Correction — Black AMG</div>
-      </div>
+      <div class="gallery-bg g1"><div class="g-shine"></div><div class="car-art"><svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" style="width:90%;height:90%;opacity:0.18;"><path d="M60 200 Q120 130 200 110 Q280 90 360 130 Q420 155 460 200 Z" fill="rgba(201,168,76,0.6)" stroke="rgba(201,168,76,0.8)" stroke-width="1"/><circle cx="145" cy="215" r="35" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="2"/><circle cx="385" cy="215" r="35" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="2"/></svg></div></div>
+      <div class="g-label"><div class="g-tag">Paint Correction</div><div class="g-title">2-Stage Correction — Black AMG</div></div>
     </div>
-
-```
-<div class="gallery-item" data-cat="interior">
-  <div class="gallery-bg g2" style="height:100%">
-    <div class="g-shine"></div>
-    <div class="car-art" style="opacity:0.15;">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:5rem;color:rgba(201,168,76,0.6);font-weight:300;">✦</div>
+    <div class="gallery-item" data-cat="interior">
+      <div class="gallery-bg g2" style="height:100%"><div class="g-shine"></div></div>
+      <div class="g-label"><div class="g-tag">Interior</div><div class="g-title">Leather Deep Clean</div></div>
+    </div>
+    <div class="gallery-item" data-cat="full">
+      <div class="gallery-bg g3" style="height:100%"><div class="g-shine"></div></div>
+      <div class="g-label"><div class="g-tag">Full Detail</div><div class="g-title">Porsche 911 — Complete</div></div>
+    </div>
+    <div class="gallery-item" data-cat="paint">
+      <div class="gallery-bg g4" style="height:100%"><div class="g-shine"></div></div>
+      <div class="g-label"><div class="g-tag">Paint Correction</div><div class="g-title">Swirl Removal — White Tesla</div></div>
+    </div>
+    <div class="gallery-item" data-cat="interior">
+      <div class="gallery-bg g5" style="height:100%"><div class="g-shine"></div></div>
+      <div class="g-label"><div class="g-tag">Interior</div><div class="g-title">Full Interior Restoration</div></div>
+    </div>
+    <div class="gallery-item" data-cat="full">
+      <div class="gallery-bg g6" style="height:100%"><div class="g-shine"></div></div>
+      <div class="g-label"><div class="g-tag">Full Detail</div><div class="g-title">Range Rover — Elite Package</div></div>
     </div>
   </div>
-  <div class="g-label">
-    <div class="g-tag">Interior</div>
-    <div class="g-title">Leather Deep Clean</div>
-  </div>
-</div>
-
-<div class="gallery-item" data-cat="full">
-  <div class="gallery-bg g3" style="height:100%">
-    <div class="g-shine" style="background:radial-gradient(ellipse at 60% 60%,rgba(201,168,76,0.15) 0%,transparent 60%)"></div>
-  </div>
-  <div class="g-label">
-    <div class="g-tag">Full Detail</div>
-    <div class="g-title">Porsche 911 — Complete</div>
-  </div>
-</div>
-
-<div class="gallery-item" data-cat="paint">
-  <div class="gallery-bg g4" style="height:100%">
-    <div class="g-shine" style="background:radial-gradient(ellipse at 30% 50%,rgba(201,168,76,0.1) 0%,transparent 60%)"></div>
-    <div class="car-art" style="opacity:0.12;">
-      <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="width:80%;height:80%">
-        <ellipse cx="200" cy="100" rx="160" ry="40" fill="none" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
-        <ellipse cx="200" cy="100" rx="100" ry="25" fill="rgba(201,168,76,0.2)"/>
-      </svg>
-    </div>
-  </div>
-  <div class="g-label">
-    <div class="g-tag">Paint Correction</div>
-    <div class="g-title">Swirl Removal — White Tesla</div>
-  </div>
-</div>
-
-<div class="gallery-item" data-cat="interior">
-  <div class="gallery-bg g5" style="height:100%">
-    <div class="g-shine" style="background:radial-gradient(ellipse at 70% 30%,rgba(201,168,76,0.12) 0%,transparent 60%)"></div>
-  </div>
-  <div class="g-label">
-    <div class="g-tag">Interior</div>
-    <div class="g-title">Full Interior Restoration</div>
-  </div>
-</div>
-
-<div class="gallery-item" data-cat="full">
-  <div class="gallery-bg g6" style="height:100%">
-    <div class="g-shine"></div>
-  </div>
-  <div class="g-label">
-    <div class="g-tag">Full Detail</div>
-    <div class="g-title">Range Rover — Elite Package</div>
-  </div>
-</div>
-```
-
-  </div>
-
   <div class="gallery-note">
-    <p>Add your own before & after photos to make this gallery yours — replace the placeholder panels with real images from your work.</p>
-    <a href="https://www.instagram.com/AtlasStudioDetailing" target="_blank" style="color:var(--gold);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;">Follow @AtlasStudioDetailing →</a>
+    <p>Swap these panels with your real before &amp; after photos as you build your portfolio.</p>
+    <a href="https://www.instagram.com/AtlasStudioDetailing" target="_blank">Follow @AtlasStudioDetailing →</a>
+  </div>
+</section>
+
+<!-- CONTENT / YOUTUBE -->
+
+<section id="content">
+  <div class="content-grid">
+    <div>
+      <div class="section-label">The Content</div>
+      <h2 class="section-title">Don't Just<br><em>Detail</em> Cars —<br>Teach the World</h2>
+      <p class="body-text" style="margin-top:20px;">The craft deserves an audience. Every detail is a lesson — in patience, in precision, in what it looks like when someone actually cares about their work.</p>
+      <p class="body-text">Follow along as we document real jobs, real results, and the products and techniques that make Atlas Studio what it is.</p>
+      <div class="content-philosophy">
+        <div class="philosophy-quote">"Don't mine for gold. Sell the shovel."</div>
+        <div class="philosophy-attr">The Atlas Philosophy</div>
+      </div>
+      <div class="video-cta">
+        <a href="https://youtube.com/@AtlasStudioDetailing" target="_blank" class="btn-primary">Subscribe on YouTube</a>
+        <span class="youtube-sub">New videos dropping soon</span>
+      </div>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-bg" style="background:linear-gradient(135deg,#1a1a1a,#0f0f0f);"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 40% 40%,rgba(201,168,76,0.15) 0%,transparent 60%)"></div></div>
+        <div class="video-play"><div class="play-btn"><div class="play-triangle"></div></div></div>
+        <div class="video-info"><div class="video-tag">Coming Soon</div><div class="video-title">Full 2-Stage Paint Correction — Start to Finish</div></div>
+      </div>
+      <div class="video-card">
+        <div class="video-bg" style="background:linear-gradient(135deg,#111,#1a1a1a);"></div>
+        <div class="video-play"><div class="play-btn"><div class="play-triangle"></div></div></div>
+        <div class="video-info"><div class="video-tag">Tutorial</div><div class="video-title">Interior Deep Clean — The Right Way</div></div>
+      </div>
+      <div class="video-card">
+        <div class="video-bg" style="background:linear-gradient(135deg,#0d0d0d,#181818);"></div>
+        <div class="video-play"><div class="play-btn"><div class="play-triangle"></div></div></div>
+        <div class="video-info"><div class="video-tag">Products</div><div class="video-title">My Top 5 Detailing Products</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+
+<section id="shop">
+  <div class="shop-intro">
+    <div class="section-label">The Shop</div>
+    <h2 class="section-title">Gear I <em>Actually</em><br>Use &amp; Trust</h2>
+    <p class="body-text" style="margin-top:20px;">No filler. No paid placements. Every product here has earned its spot in my kit. Whether you're detailing your own car or want to rep the brand — this is the Atlas standard.</p>
+  </div>
+  <div class="shop-categories">
+    <button class="shop-cat-btn active" onclick="filterShop('all',this)">All Products</button>
+    <button class="shop-cat-btn" onclick="filterShop('products',this)">Detailing Products</button>
+    <button class="shop-cat-btn" onclick="filterShop('merch',this)">Merch</button>
+    <button class="shop-cat-btn" onclick="filterShop('gift',this)">Gift Cards</button>
+  </div>
+  <div class="shop-grid" id="shopGrid">
+    <div class="product-card" data-shopcat="products">
+      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#1a1a1a,#0f0f0f);"></div><div class="product-shine"></div><div class="product-badge">My #1 Pick</div><div class="product-icon">✦</div></div>
+      <div class="product-info"><div class="product-category">Paint Care</div><div class="product-name">Iron Decon Spray</div><div class="product-desc">The first step I run on every paint job. Pulls embedded contamination before polish.</div><div class="product-footer"><span class="product-price">$24</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
+    </div>
+    <div class="product-card" data-shopcat="products">
+      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#111,#1c1c1c);"></div><div class="product-shine"></div><div class="product-icon">◎</div></div>
+      <div class="product-info"><div class="product-category">Interior</div><div class="product-name">Leather Conditioner</div><div class="product-desc">Deep conditioning without the greasy residue. Used on every interior restoration.</div><div class="product-footer"><span class="product-price">$32</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
+    </div>
+    <div class="product-card" data-shopcat="products">
+      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#131313,#1e1e1e);"></div><div class="product-shine"></div><div class="product-icon">❋</div></div>
+      <div class="product-info"><div class="product-category">Paint Correction</div><div class="product-name">Dual Action Polisher</div><div class="product-desc">The machine I run for every stage of correction. Beginner-safe, pro results.</div><div class="product-footer"><span class="product-price">$180</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
+    </div>
+    <div class="product-card" data-shopcat="products">
+      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#141414,#1f1f1f);"></div><div class="product-shine"></div><div class="product-icon">◈</div></div>
+      <div class="product-info"><div class="product-category">Protection</div><div class="product-name">Ceramic Spray Coating</div><div class="product-desc">Easy-apply ceramic protection. 6+ months of hydrophobic shine in one step.</div><div class="product-footer"><span class="product-price">$44</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
+    </div>
+    <div class="product-card" data-shopcat="merch">
+      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);"></div><div class="product-shine" style="background:radial-gradient(ellipse at 50% 30%,rgba(201,168,76,0.18) 0%,transparent 60%)"></div><div class="product-badge">New</div><div class="product-icon" style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:rgba(201,168,76,0.4);font-weight:300;opacity:0.3;">A</div></div>
+      <div class="product-info"><div class="product-category">Merch</div><div class="product-name">Atlas Studio Tee</div><div class="product-desc">Heavyweight cotton. Minimal logo. Wears like the standard we hold ourselves to.</div><div class="product-footer"><span class="product-price">$38</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
+    </div>
+    <div class="product-card" data-shopcat="merch">
+      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#111,#181818);"></div><div class="product-shine"></div><div class="product-icon" style="font-size:3.5rem;opacity:0.2;">🧢</div></div>
+      <div class="product-info"><div class="product-category">Merch</div><div class="product-name">Atlas Studio Cap</div><div class="product-desc">Structured snapback. Embroidered logo. Clean enough to wear anywhere.</div><div class="product-footer"><span class="product-price">$34</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
+    </div>
+    <div class="product-card" data-shopcat="merch">
+      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#0f0f0f,#1a1a1a);"></div><div class="product-shine"></div><div class="product-icon" style="font-size:3.5rem;opacity:0.2;">👕</div></div>
+      <div class="product-info"><div class="product-category">Merch</div><div class="product-name">Atlas Hoodie</div><div class="product-desc">Premium fleece. Embroidered chest logo. For those who take the craft seriously.</div><div class="product-footer"><span class="product-price">$62</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
+    </div>
+    <div class="product-card" data-shopcat="gift">
+      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#1c1c1c,#0f0f0f);"></div><div class="product-shine" style="background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,0.2) 0%,transparent 55%)"></div><div class="product-badge">Gift</div><div class="product-icon" style="font-size:3rem;opacity:0.2;">✉</div></div>
+      <div class="product-info"><div class="product-category">Gift Card</div><div class="product-name">Detail Gift Card</div><div class="product-desc">Give someone the gift of a clean car. Redeemable for any Atlas Studio service.</div><div class="product-footer"><span class="product-price">$100+</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
+    </div>
+  </div>
+  <div class="shop-note">
+    <p class="shop-note-text"><strong>Full store coming soon:</strong> Affiliate links to every product in the Atlas kit, branded merch, and digital gift cards. Text <strong>702-763-3539</strong> to be first on the list when it goes live.</p>
+    <a href="sms:7027633539?&body=Put%20me%20on%20the%20list%20for%20the%20Atlas%20Studio%20shop%20launch." class="btn-primary" style="white-space:nowrap;">Notify Me →</a>
   </div>
 </section>
 
@@ -1195,108 +516,50 @@ nav { padding: 20px 24px; }
     <div class="booking-info">
       <div class="section-label">Request A Detail</div>
       <h2 class="section-title">Reserve Your<br><em>Session</em></h2>
-      <p style="font-size:0.8rem;color:var(--text-muted);line-height:2;margin-top:24px;font-weight:300;">
-        Text or fill out the form and we'll confirm your appointment within 24 hours. Serious inquiries only — we book fast.
-      </p>
-
-```
-  <div class="packages">
-    <div class="package">
-      <div>
-        <div class="pkg-name">Interior Refresh</div>
-        <div class="pkg-desc">Vacuum · Wipe-down · Glass · Odor Treatment</div>
+      <p class="body-text" style="margin-top:24px;">Text or fill out the form and we'll confirm within 24 hours. Serious inquiries only — we book fast.</p>
+      <div class="packages">
+        <div class="package"><div><div class="pkg-name">Interior Refresh</div><div class="pkg-desc">Vacuum · Wipe-down · Glass · Odor Treatment</div></div><div class="pkg-price">$150+</div></div>
+        <div class="package"><div><div class="pkg-name">Interior Restoration</div><div class="pkg-desc">Deep Clean · Leather Condition · Extraction · Carpet</div></div><div class="pkg-price">$250+</div></div>
+        <div class="package"><div><div class="pkg-name">Paint Correction</div><div class="pkg-desc">1-Stage or 2-Stage · Swirl &amp; Scratch Removal</div></div><div class="pkg-price">$350+</div></div>
+        <div class="package"><div><div class="pkg-name">The Atlas Full Detail</div><div class="pkg-desc">Complete Interior + Paint Correction + Protection</div></div><div class="pkg-price">$550+</div></div>
       </div>
-      <div class="pkg-price">$150+</div>
-    </div>
-    <div class="package">
-      <div>
-        <div class="pkg-name">Interior Restoration</div>
-        <div class="pkg-desc">Deep Clean · Leather Condition · Extraction · Carpet</div>
-      </div>
-      <div class="pkg-price">$250+</div>
-    </div>
-    <div class="package">
-      <div>
-        <div class="pkg-name">Paint Correction</div>
-        <div class="pkg-desc">1-Stage or 2-Stage · Swirl &amp; Scratch Removal</div>
-      </div>
-      <div class="pkg-price">$350+</div>
-    </div>
-    <div class="package">
-      <div>
-        <div class="pkg-name">The Atlas Full Detail</div>
-        <div class="pkg-desc">Complete Interior + Paint Correction + Protection</div>
-      </div>
-      <div class="pkg-price">$550+</div>
-    </div>
-  </div>
-
-  <div style="margin-top:40px;padding:24px;border:1px solid rgba(201,168,76,0.3);background:rgba(201,168,76,0.04);">
-    <p style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Text For Faster Response</p>
-    <a href="tel:7027633539" style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--white);text-decoration:none;font-weight:300;">702-763-3539</a>
-  </div>
-</div>
-
-<div class="booking-form" id="bookingForm">
-  <div class="success-msg" id="successMsg">
-    <div class="success-icon">✦</div>
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;margin-bottom:12px;">Request Received</h3>
-    <p style="font-size:0.7rem;color:var(--text-muted);letter-spacing:0.1em;">We'll be in touch within 24 hours to confirm your detail. Serious clients only — we know you are.</p>
-  </div>
-
-  <div id="formContent">
-    <div class="form-title">Book Your Detail</div>
-    <div class="form-sub">Text For Availability · Serious Inquiries Only</div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label>First Name</label>
-        <input type="text" placeholder="John" id="firstName">
-      </div>
-      <div class="form-group">
-        <label>Last Name</label>
-        <input type="text" placeholder="Smith" id="lastName">
+      <div class="contact-box">
+        <div class="contact-box-label">Text For Faster Response</div>
+        <a href="sms:7027633539" class="contact-box-number">702-763-3539</a>
       </div>
     </div>
-
-    <div class="form-group">
-      <label>Phone Number</label>
-      <input type="tel" placeholder="702-000-0000" id="phone">
+    <div class="booking-form">
+      <div class="success-msg" id="successMsg">
+        <div class="success-icon">✦</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;margin-bottom:12px;color:var(--white);">Request Received</h3>
+        <p style="font-size:0.7rem;color:var(--text-muted);letter-spacing:0.1em;">We'll be in touch within 24 hours to confirm your detail.</p>
+      </div>
+      <div id="formContent">
+        <div class="form-title">Book Your Detail</div>
+        <div class="form-sub">Serious Inquiries Only · We Come To You</div>
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="John" id="firstName"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" id="lastName"></div>
+        </div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="702-000-0000" id="phone"></div>
+        <div class="form-group"><label>Vehicle (Year, Make, Model)</label><input type="text" placeholder="2022 Mercedes C300" id="vehicle"></div>
+        <div class="form-group">
+          <label>Service Requested</label>
+          <select id="service">
+            <option value="">Select a service...</option>
+            <option>Interior Refresh — $150+</option>
+            <option>Interior Restoration — $250+</option>
+            <option>Paint Correction — $350+</option>
+            <option>The Atlas Full Detail — $550+</option>
+            <option>Not sure — need a quote</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Preferred Date</label><input type="date" id="date"></div>
+        <div class="form-group"><label>Location / Notes</label><textarea placeholder="Your address or anything we should know..." id="notes"></textarea></div>
+        <button class="form-submit" onclick="submitForm()">Submit Request →</button>
+        <p class="form-note">By submitting you agree to be contacted at the number provided.</p>
+      </div>
     </div>
-
-    <div class="form-group">
-      <label>Vehicle (Year, Make, Model)</label>
-      <input type="text" placeholder="2022 Mercedes C300" id="vehicle">
-    </div>
-
-    <div class="form-group">
-      <label>Service Requested</label>
-      <select id="service">
-        <option value="">Select a service...</option>
-        <option>Interior Refresh — $150+</option>
-        <option>Interior Restoration — $250+</option>
-        <option>Paint Correction — $350+</option>
-        <option>The Atlas Full Detail — $550+</option>
-        <option>Not sure — need a quote</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>Preferred Date</label>
-      <input type="date" id="date">
-    </div>
-
-    <div class="form-group">
-      <label>Location / Notes</label>
-      <textarea placeholder="Your address or anything we should know about the vehicle..." id="notes"></textarea>
-    </div>
-
-    <button class="form-submit" onclick="submitForm()">Submit Request →</button>
-    <p class="form-note">By submitting you agree to be contacted at the number provided.</p>
-  </div>
-</div>
-```
-
   </div>
 </section>
 
@@ -1306,46 +569,39 @@ nav { padding: 20px 24px; }
   <div class="footer-grid">
     <div>
       <div class="footer-brand-name">Atlas <span>Studio</span> Detailing</div>
-      <p class="footer-tagline">Mobile interior restoration and paint correction serving the Las Vegas valley. We come to you — studio quality, wherever you are.</p>
-      <a href="tel:7027633539" class="footer-contact-item">
-        <div class="footer-contact-icon">✆</div>
-        702-763-3539
-      </a>
-      <a href="https://www.instagram.com/AtlasStudioDetailing" target="_blank" class="footer-contact-item">
-        <div class="footer-contact-icon">◈</div>
-        @AtlasStudioDetailing
-      </a>
-      <div class="footer-contact-item">
-        <div class="footer-contact-icon">◎</div>
-        Las Vegas, Nevada
-      </div>
+      <p class="footer-tagline">Mobile interior restoration and paint correction serving the Las Vegas valley. Studio quality, wherever you are.</p>
+      <a href="tel:7027633539" class="footer-contact-item"><div class="footer-contact-icon">✆</div>702-763-3539</a>
+      <a href="https://www.instagram.com/AtlasStudioDetailing" target="_blank" class="footer-contact-item"><div class="footer-contact-icon">◈</div>@AtlasStudioDetailing</a>
+      <div class="footer-contact-item"><div class="footer-contact-icon">◎</div>Las Vegas, Nevada</div>
     </div>
-
-```
-<div>
-  <div class="footer-col-title">Services</div>
-  <ul class="footer-links">
-    <li><a href="#booking">Interior Refresh</a></li>
-    <li><a href="#booking">Interior Restoration</a></li>
-    <li><a href="#booking">Paint Correction</a></li>
-    <li><a href="#booking">Ceramic Coating</a></li>
-    <li><a href="#booking">Full Detail Package</a></li>
-  </ul>
-</div>
-
-<div>
-  <div class="footer-col-title">Navigate</div>
-  <ul class="footer-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#story">Our Story</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#booking">Book A Detail</a></li>
-  </ul>
-</div>
-```
-
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#booking">Interior Refresh</a></li>
+        <li><a href="#booking">Interior Restoration</a></li>
+        <li><a href="#booking">Paint Correction</a></li>
+        <li><a href="#booking">Full Detail Package</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Explore</div>
+      <ul class="footer-links">
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#content">YouTube</a></li>
+        <li><a href="#shop">Shop</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/AtlasStudioDetailing" target="_blank">Instagram</a></li>
+        <li><a href="https://youtube.com/@AtlasStudioDetailing" target="_blank">YouTube</a></li>
+        <li><a href="sms:7027633539">Text Us</a></li>
+        <li><a href="#booking">Book A Detail</a></li>
+      </ul>
+    </div>
   </div>
-
   <div class="footer-bottom">
     <div class="footer-copy">© 2025 Atlas Studio Detailing · Las Vegas, NV · All Rights Reserved</div>
     <a href="tel:7027633539" class="footer-phone">702-763-3539</a>
@@ -1356,96 +612,58 @@ nav { padding: 20px 24px; }
   // Custom cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{ mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
+  (function animateRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animateRing); })();
+  document.querySelectorAll('a,button,.gallery-item,.package,.product-card,.video-card').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{ cursor.style.transform='translate(-50%,-50%) scale(2)'; ring.style.transform='translate(-50%,-50%) scale(1.5)'; ring.style.opacity='1'; });
+    el.addEventListener('mouseleave',()=>{ cursor.style.transform='translate(-50%,-50%) scale(1)'; ring.style.transform='translate(-50%,-50%) scale(1)'; ring.style.opacity='0.6'; });
   });
 
-  function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
-
-  document.querySelectorAll('a, button, .gallery-item, .package').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'translate(-50%,-50%) scale(2)';
-      ring.style.transform = 'translate(-50%,-50%) scale(1.5)';
-      ring.style.opacity = '1';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-      ring.style.transform = 'translate(-50%,-50%) scale(1)';
-      ring.style.opacity = '0.6';
-    });
-  });
-
-  // Scroll fade-in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.story-grid, .gallery-item, .package, .booking-form').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(40px)';
-    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    observer.observe(el);
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } }); },{ threshold:0.08 });
+  document.querySelectorAll('.story-grid,.gallery-item,.package,.booking-form,.product-card,.video-card,.content-philosophy,.shop-note').forEach(el=>{
+    el.style.opacity='0'; el.style.transform='translateY(40px)'; el.style.transition='opacity 0.8s ease,transform 0.8s ease'; observer.observe(el);
   });
 
   // Gallery filter
-  function filterGallery(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      if (cat === 'all' || item.dataset.cat === cat) {
-        item.style.display = '';
-        setTimeout(() => item.style.opacity = '1', 10);
-      } else {
-        item.style.opacity = '0';
-        setTimeout(() => item.style.display = 'none', 300);
-      }
+  function filterGallery(cat,btn){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    document.querySelectorAll('.gallery-item').forEach(item=>{
+      if(cat==='all'||item.dataset.cat===cat){ item.style.display=''; setTimeout(()=>item.style.opacity='1',10); }
+      else{ item.style.opacity='0'; setTimeout(()=>item.style.display='none',300); }
     });
   }
 
-  // Form
-  function submitForm() {
-    const required = ['firstName', 'phone', 'vehicle', 'service'];
-    let valid = true;
-    required.forEach(id => {
-      const el = document.getElementById(id);
-      if (!el.value.trim()) {
-        el.style.borderColor = 'rgba(201,168,76,0.8)';
-        valid = false;
-      } else {
-        el.style.borderColor = 'rgba(255,255,255,0.1)';
-      }
+  // Shop filter
+  function filterShop(cat,btn){
+    document.querySelectorAll('.shop-cat-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    document.querySelectorAll('.product-card').forEach(card=>{
+      if(cat==='all'||card.dataset.shopcat===cat){ card.style.display=''; setTimeout(()=>{ card.style.opacity='1'; card.style.transform='translateY(0)'; },10); }
+      else{ card.style.opacity='0'; card.style.transform='translateY(20px)'; setTimeout(()=>card.style.display='none',300); }
     });
-    if (!valid) return;
-    document.getElementById('formContent').style.display = 'none';
+  }
+
+  // Shop button — texts you about the product
+  function shopLink(btn){
+    const name = btn.closest('.product-card').querySelector('.product-name').textContent;
+    window.location.href='sms:7027633539?&body=Hey%2C%20I%27m%20interested%20in%20the%20'+encodeURIComponent(name);
+  }
+
+  // Form submit
+  function submitForm(){
+    const required=['firstName','phone','vehicle','service']; let valid=true;
+    required.forEach(id=>{ const el=document.getElementById(id); if(!el.value.trim()){ el.style.borderColor='rgba(201,168,76,0.8)'; valid=false; } else{ el.style.borderColor='rgba(255,255,255,0.1)'; } });
+    if(!valid) return;
+    document.getElementById('formContent').style.display='none';
     document.getElementById('successMsg').classList.add('show');
   }
 
-  // Nav background on scroll
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      nav.style.background = 'rgba(8,8,8,0.97)';
-      nav.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
-    } else {
-      nav.style.background = 'linear-gradient(to bottom, rgba(8,8,8,0.95), transparent)';
-      nav.style.borderBottom = 'none';
-    }
+  // Nav scroll
+  const nav=document.getElementById('mainNav');
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>80){ nav.style.background='rgba(8,8,8,0.97)'; nav.style.borderBottom='1px solid rgba(255,255,255,0.05)'; }
+    else{ nav.style.background='linear-gradient(to bottom,rgba(8,8,8,0.95),transparent)'; nav.style.borderBottom='none'; }
   });
 </script>
 

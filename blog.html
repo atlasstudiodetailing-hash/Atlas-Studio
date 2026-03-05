@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Content | Atlas Studio Detailing</title><meta name="description" content="Follow Atlas Studio on YouTube, Instagram, and TikTok for paint correction walkthroughs, job photos, and Las Vegas car care tips.">
+<title>The Atlas Journal | Atlas Studio Detailing</title><meta name="description" content="Behind the scenes, tips from the field, and updates from Atlas Studio Detailing Las Vegas. Read and comment.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>/* ═══════════════════════════════════════════════════
    ATLAS STUDIO — GLOBAL DESIGN SYSTEM v3.0
@@ -406,114 +406,165 @@ footer{background:var(--charcoal);border-top:1px solid var(--border);padding:72p
 }
 @media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
 
-.con-body{padding:56px 5vw 100px}
-.platform{margin-bottom:56px}
-.plat-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:14px}
-.plat-id{display:flex;align-items:center;gap:16px}
-.plat-ico{width:44px;height:44px;background:var(--charcoal);border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--gold)}
-.plat-name{font-family:"Cormorant Garamond",serif;font-size:1.2rem;color:var(--white)}
-.plat-handle{font-size:.56rem;color:var(--gold)!important;letter-spacing:.1em}
-.plat-handle:hover{color:var(--gold-lt)!important}
-/* YouTube coming soon */
-.yt-soon{background:var(--charcoal);border:1px solid var(--border-gold)}
-.yt-soon-inner{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;padding:52px 44px}
-/* IG grid */
-.ig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
-.ig-tile{position:relative;aspect-ratio:1;background:var(--charcoal);overflow:hidden;cursor:pointer}
-.ig-tile-bg{position:absolute;inset:0}
-.ig-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(200,169,110,.2)}
-.ig-ov{position:absolute;inset:0;background:rgba(0,0,0,.5);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--gold)}
-.ig-tile:hover .ig-ov{opacity:1}
-.ig-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.ig-tile:hover img{transform:scale(1.08)}
-/* TikTok */
-.tt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
-.tt-tile{position:relative;aspect-ratio:9/16;background:var(--charcoal);overflow:hidden;cursor:pointer}
-.tt-bg{position:absolute;inset:0;transition:transform .4s}
-.tt-tile:hover .tt-bg{transform:scale(1.06)}
-.tt-sh{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 35%,rgba(200,169,110,.1) 0%,transparent 60%)}
-.tt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.play-c{width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.5);border:1.5px solid rgba(200,169,110,.6);display:flex;align-items:center;justify-content:center}
-.play-t{width:0;height:0;border-style:solid;border-width:7px 0 7px 14px;border-color:transparent transparent transparent var(--gold);margin-left:3px}
-.tt-info{position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(to top,rgba(0,0,0,.88),transparent)}
-.tt-tag{font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
-.tt-title{font-family:"Cormorant Garamond",serif;font-size:.92rem;color:#fff}
-/* Notify */
-.notify-band{background:var(--gold);padding:64px 5vw;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
-.nb-hed{font-family:"Cormorant Garamond",serif;font-size:clamp(1.7rem,2.8vw,2.4rem);color:var(--black)}
-.nb-hed em{font-style:italic}
-.nb-sub{font-size:.6rem;color:rgba(0,0,0,.48);margin-top:5px}
-@media(max-width:860px){.ig-grid{grid-template-columns:1fr 1fr}.tt-grid{grid-template-columns:1fr 1fr}.yt-soon-inner{grid-template-columns:1fr;gap:24px;padding:36px 28px}.notify-band{flex-direction:column;align-items:flex-start}.plat-hdr{flex-direction:column;align-items:flex-start}}
+.blog-body{padding:60px 5vw 110px}
+.blog-layout{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:start}
+.posts{display:flex;flex-direction:column;gap:3px}
+.post{background:var(--charcoal);overflow:hidden;transition:background .3s,transform .3s;position:relative}
+.post::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .35s}
+.post:hover{background:var(--surface);transform:translateY(-2px)}
+.post:hover::before{transform:scaleY(1)}
+.post-img{aspect-ratio:16/7;position:relative;overflow:hidden;background:#111}
+.post-img-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(200,169,110,.2)}
+.post-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.post:hover .post-img img{transform:scale(1.04)}
+.post-body{padding:26px 30px 30px}
+.post-meta{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.post-cat{font-size:.47rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);background:rgba(200,169,110,.1);padding:4px 10px}
+.post-date{font-size:.51rem;color:var(--muted);letter-spacing:.08em}
+.post-title{font-family:"Cormorant Garamond",serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:300;color:var(--white);margin-bottom:10px;line-height:1.2}
+.post-excerpt{font-size:.67rem;color:var(--copy);line-height:1.9;margin-bottom:16px}
+.post-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.post-read{font-size:.51rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);transition:letter-spacing .25s}
+.post:hover .post-read{letter-spacing:.26em}
+.post-soon{background:rgba(200,169,110,.04);border:1px dashed rgba(200,169,110,.2);padding:36px 32px;text-align:center}
+.post-soon-ico{font-size:1.8rem;color:var(--gold);margin-bottom:12px}
+.post-soon-title{font-family:"Cormorant Garamond",serif;font-size:1.3rem;color:var(--white);margin-bottom:8px}
+.post-soon-sub{font-size:.62rem;color:var(--muted);line-height:1.8}
+/* Sidebar */
+.blog-sidebar{position:sticky;top:100px;display:flex;flex-direction:column;gap:3px}
+.sb-card{background:var(--charcoal);padding:24px 26px}
+.sb-title{font-size:.5rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.sb-form input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--glass-border);color:var(--white);padding:10px 13px;font-family:"Montserrat",sans-serif;font-size:.65rem;margin-bottom:8px;outline:none;transition:border-color .25s}
+.sb-form input:focus{border-color:var(--gold)}
+.sb-form button{width:100%;background:var(--gold);color:#000!important;border:none;padding:11px;font-family:"Montserrat",sans-serif;font-size:.53rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background .25s}
+.sb-form button:hover{background:var(--gold-lt)}
+.sb-note{font-size:.51rem;color:var(--muted);margin-top:7px}
+.topic-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:color .25s}
+.topic-row:last-child{border-bottom:none}
+.topic-row:hover{color:var(--gold)}
+.topic-n{font-size:.65rem;color:var(--copy)}
+.topic-c{font-size:.51rem;color:var(--muted)}
+/* Comments */
+.comments-sec{margin-top:3px}
+.comment-hdr{background:var(--charcoal);padding:20px 30px;display:flex;align-items:center;justify-content:space-between}
+.comment-hdr-title{font-family:"Cormorant Garamond",serif;font-size:1.1rem;color:var(--white)}
+.comment-form{background:var(--charcoal);padding:26px 30px;border-top:1px solid var(--border);margin-top:1px}
+.comment-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.comment-form input,.comment-form textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--glass-border);color:var(--white);padding:10px 13px;font-family:"Montserrat",sans-serif;font-size:.65rem;outline:none;transition:border-color .25s}
+.comment-form input:focus,.comment-form textarea:focus{border-color:var(--gold)}
+.comment-form textarea{resize:vertical;min-height:80px;margin-bottom:10px}
+.comment-submit{background:var(--gold);color:#000!important;border:none;padding:11px 26px;font-family:"Montserrat",sans-serif;font-size:.53rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background .25s,transform .2s}
+.comment-submit:hover{background:var(--gold-lt);transform:translateY(-1px)}
+.comment-note{font-size:.51rem;color:var(--muted);margin-left:12px}
+.comment-list{background:var(--charcoal);border-top:1px solid var(--border);margin-top:1px}
+.comment-item{padding:20px 30px;border-bottom:1px solid var(--border)}
+.comment-item:last-child{border-bottom:none}
+.ci-name{font-size:.6rem;color:var(--white);font-weight:500;margin-bottom:3px}
+.ci-date{font-size:.49rem;color:var(--muted);margin-bottom:8px}
+.ci-text{font-size:.67rem;color:var(--copy);line-height:1.85}
+.ci-like{font-size:.51rem;color:var(--muted);margin-top:8px;cursor:pointer;transition:color .25s;display:inline-block}
+.ci-like:hover{color:var(--gold)}
+@media(max-width:960px){.blog-layout{grid-template-columns:1fr}.blog-sidebar{position:static}.comment-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="cursor" id="cur"></div><div class="cursor-ring" id="curRing"></div>
 <div class="mobile-menu" id="mobileMenu"><a href="index.html" onclick="toggleMobileMenu()">Home</a><a href="services.html" onclick="toggleMobileMenu()">Services</a><a href="gallery.html" onclick="toggleMobileMenu()">Gallery</a><a href="shop.html" onclick="toggleMobileMenu()">Shop</a><a href="content.html" onclick="toggleMobileMenu()">Content</a><a href="blog.html" onclick="toggleMobileMenu()">Journal</a><a href="booking.html" onclick="toggleMobileMenu()">Contact</a></div>
-<nav id="nav"><a href="index.html" class="nav-logo">Atlas <span>Studio</span></a><ul class="nav-links"><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="shop.html">Shop</a></li><li><a href="content.html" class="active">Content</a></li><li><a href="blog.html">Journal</a></li><li><a href="booking.html">Contact</a></li></ul><div class="nav-right"><button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">☀</button><a href="booking.html" class="nav-cta">Book a Reset</a><div class="nav-hamburger" id="navBurger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div></div></nav>
+<nav id="nav"><a href="index.html" class="nav-logo">Atlas <span>Studio</span></a><ul class="nav-links"><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="shop.html">Shop</a></li><li><a href="content.html">Content</a></li><li><a href="blog.html" class="active">Journal</a></li><li><a href="booking.html">Contact</a></li></ul><div class="nav-right"><button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">☀</button><a href="booking.html" class="nav-cta">Book a Reset</a><div class="nav-hamburger" id="navBurger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div></div></nav>
 
 <div class="page-hero">
-  <div class="ph-eyebrow">YouTube · Instagram · TikTok</div>
-  <h1 class="ph-title">Follow the <em>Craft</em></h1>
-  <p class="ph-sub">Real jobs. Honest reviews. Behind the scenes of what it actually takes to do this right. Subscribe and follow across all platforms.</p>
-  <div class="ph-letter">C</div>
+  <div class="ph-eyebrow">Field Notes</div>
+  <h1 class="ph-title">The Atlas <em>Journal</em></h1>
+  <p class="ph-sub">Behind the scenes, tips from the field, product thoughts, and updates straight from the detailer. Follow along and leave a comment.</p>
+  <div class="ph-letter">J</div>
 </div>
-<div class="con-body">
-  <div class="platform">
-    <div class="plat-hdr reveal">
-      <div class="plat-id">
-        <div class="plat-ico">▶</div>
-        <div><div class="plat-name">YouTube</div><a href="https://youtube.com/@AtlasStudioDetailing" target="_blank" class="plat-handle">@AtlasStudioDetailing</a></div>
+<div class="blog-body">
+  <div class="blog-layout">
+    <div>
+      <div class="posts">
+        <article class="post reveal">
+          <div class="post-img"><div class="post-img-ph">+ Add Cover Photo</div></div>
+          <div class="post-body">
+            <div class="post-meta"><span class="post-cat">Paint Correction</span><span class="post-date">March 2026</span></div>
+            <div class="post-title">First Job in the Books — Plaid Paint Correction</div>
+            <p class="post-excerpt">What I learned on my first serious correction job. The prep work alone took two hours, and that is exactly how it should be. Here is what the process looked like start to finish and what I would do differently next time.</p>
+            <div class="post-foot"><span class="post-read">Read more →</span><span style="font-size:.54rem;color:var(--muted)">💬 Leave a comment below</span></div>
+          </div>
+        </article>
+        <article class="post reveal">
+          <div class="post-img"><div class="post-img-ph">+ Add Cover Photo</div></div>
+          <div class="post-body">
+            <div class="post-meta"><span class="post-cat">Interior Reset</span><span class="post-date">March 2026</span></div>
+            <div class="post-title">GMC Denali — Full Interior Walkthrough</div>
+            <p class="post-excerpt">A full-size truck interior done right. Leather, carpet extraction, door panels, the headliner. Every surface. This one took most of the day and the result was night and day.</p>
+            <div class="post-foot"><span class="post-read">Read more →</span><span style="font-size:.54rem;color:var(--muted)">💬 Leave a comment below</span></div>
+          </div>
+        </article>
+        <article class="post reveal">
+          <div class="post-img"><div class="post-img-ph">+ Add Cover Photo</div></div>
+          <div class="post-body">
+            <div class="post-meta"><span class="post-cat">Vegas Tips</span><span class="post-date">March 2026</span></div>
+            <div class="post-title">Why Vegas Paint Fades Faster Than Anywhere Else</div>
+            <p class="post-excerpt">UV intensity in Las Vegas is significantly higher than most US cities. Here is what that actually does to your clear coat, how to spot early damage, and why a one-time correction now saves thousands later.</p>
+            <div class="post-foot"><span class="post-read">Read more →</span><span style="font-size:.54rem;color:var(--muted)">💬 Leave a comment below</span></div>
+          </div>
+        </article>
+        <div class="post-soon reveal">
+          <div class="post-soon-ico">✦</div>
+          <div class="post-soon-title">More posts coming soon</div>
+          <div class="post-soon-sub">Drop your name and email in the sidebar to get notified when new journal entries go live.</div>
+        </div>
       </div>
-      <a href="https://youtube.com/@AtlasStudioDetailing" target="_blank" class="btn-gold" style="font-size:.53rem;padding:10px 20px">Subscribe →</a>
-    </div>
-    <div class="yt-soon reveal">
-      <div class="yt-soon-inner">
-        <div class="play-c" style="width:64px;height:64px;flex-shrink:0"><div class="play-t" style="border-width:10px 0 10px 20px;border-color:transparent transparent transparent var(--gold)"></div></div>
-        <div>
-          <div style="font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">Coming Soon</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:300;color:var(--white);margin-bottom:12px">First videos dropping soon.<br><em style="color:var(--gold)">Subscribe to be notified.</em></div>
-          <p class="copy" style="max-width:420px">Paint correction walkthroughs, honest product reviews, and behind the scenes of every job.</p>
-          <div style="margin-top:20px"><a href="https://youtube.com/@AtlasStudioDetailing" target="_blank" class="btn-gold" style="font-size:.53rem;padding:11px 22px">Subscribe on YouTube →</a></div>
+      <div class="comments-sec" style="margin-top:3px">
+        <div class="comment-hdr">
+          <div class="comment-hdr-title">Community <em style="color:var(--gold)">Comments</em></div>
+          <span style="font-size:.53rem;color:var(--muted)">Drop a thought or question</span>
+        </div>
+        <div class="comment-form">
+          <div class="comment-row">
+            <input type="text" id="cName" placeholder="Your name">
+            <input type="email" id="cEmail" placeholder="Email (not published)">
+          </div>
+          <textarea id="cText" placeholder="Share a thought, ask a question, or tell us about your car..."></textarea>
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:10px">
+            <button class="comment-submit" onclick="submitComment()">Post Comment →</button>
+            <span class="comment-note">Comments reviewed before posting.</span>
+          </div>
+        </div>
+        <div class="comment-list" id="commentList">
+          <div class="comment-item">
+            <div class="ci-name">Marcus T.</div>
+            <div class="ci-date">Be next to comment</div>
+            <div class="ci-text">Excited to follow along. Vegas really does destroy paint. My black 4Runner looks rough after two summers. Booking a Reset soon.</div>
+            <span class="ci-like" onclick="this.textContent=this.textContent.includes('♡')?'♥  Liked':'♡  Like'">♡  Like</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="platform">
-    <div class="plat-hdr reveal">
-      <div class="plat-id">
-        <div class="plat-ico">◈</div>
-        <div><div class="plat-name">Instagram</div><a href="https://instagram.com/AtlasStudioDetailing" target="_blank" class="plat-handle">@AtlasStudioDetailing</a></div>
+    <div class="blog-sidebar">
+      <div class="sb-card reveal">
+        <div class="sb-title">Stay in the Loop</div>
+        <div class="sb-form">
+          <input type="text" placeholder="Your name">
+          <input type="email" placeholder="Your email">
+          <button onclick="this.textContent='✓ You are in!'">Notify Me →</button>
+          <div class="sb-note">New posts, job updates, and product drops. No spam.</div>
+        </div>
       </div>
-      <a href="https://instagram.com/AtlasStudioDetailing" target="_blank" class="btn-gold" style="font-size:.53rem;padding:10px 20px">Follow on IG →</a>
-    </div>
-    <div class="ig-grid">
-      <a href="https://instagram.com/AtlasStudioDetailing" target="_blank" class="ig-tile reveal"><div class="ig-tile-bg" style="background:linear-gradient(135deg,#1c1c1c,#111)"></div><div class="ig-ph">+ Add Photo</div><div class="ig-ov">◈</div></a>
-      <a href="https://instagram.com/AtlasStudioDetailing" target="_blank" class="ig-tile reveal delay-1"><div class="ig-tile-bg" style="background:linear-gradient(135deg,#181818,#222)"></div><div class="ig-ph">+ Add Photo</div><div class="ig-ov">◈</div></a>
-      <a href="https://instagram.com/AtlasStudioDetailing" target="_blank" class="ig-tile reveal delay-2"><div class="ig-tile-bg" style="background:linear-gradient(135deg,#111,#1c1c1c)"></div><div class="ig-ph">+ Add Photo</div><div class="ig-ov">◈</div></a>
-      <a href="https://instagram.com/AtlasStudioDetailing" target="_blank" class="ig-tile reveal delay-3"><div class="ig-tile-bg" style="background:linear-gradient(135deg,#1a1a1a,#252525)"></div><div class="ig-ph">+ Add Photo</div><div class="ig-ov">◈</div></a>
-    </div>
-  </div>
-  <div class="platform">
-    <div class="plat-hdr reveal">
-      <div class="plat-id">
-        <div class="plat-ico" style="font-size:1.1rem">♪</div>
-        <div><div class="plat-name">TikTok</div><a href="https://www.tiktok.com/@atlas.studio1" target="_blank" class="plat-handle">@atlas.studio1</a></div>
+      <div class="sb-card reveal">
+        <div class="sb-title">Topics</div>
+        <div class="topic-row"><span class="topic-n">Paint Correction</span><span class="topic-c">2 posts</span></div>
+        <div class="topic-row"><span class="topic-n">Interior Reset</span><span class="topic-c">1 post</span></div>
+        <div class="topic-row"><span class="topic-n">Vegas Tips</span><span class="topic-c">1 post</span></div>
+        <div class="topic-row"><span class="topic-n">Products</span><span class="topic-c">Coming soon</span></div>
+        <div class="topic-row" style="border-bottom:none"><span class="topic-n">Business</span><span class="topic-c">Coming soon</span></div>
       </div>
-      <a href="https://www.tiktok.com/@atlas.studio1" target="_blank" class="btn-gold" style="font-size:.53rem;padding:10px 20px">Follow on TikTok →</a>
-    </div>
-    <div class="tt-grid">
-      <a href="https://www.tiktok.com/@atlas.studio1" target="_blank" class="tt-tile reveal"><div class="tt-bg" style="background:linear-gradient(180deg,#1a1a1a,#0d0d0d)"></div><div class="tt-sh"></div><div class="tt-play"><div class="play-c"><div class="play-t"></div></div></div><div class="tt-info"><div class="tt-tag">Tap to View</div><div class="tt-title">Visit @atlas.studio1 on TikTok</div></div></a>
-      <a href="https://www.tiktok.com/@atlas.studio1" target="_blank" class="tt-tile reveal delay-1"><div class="tt-bg" style="background:linear-gradient(180deg,#111,#1a1a1a)"></div><div class="tt-sh"></div><div class="tt-play"><div class="play-c"><div class="play-t"></div></div></div><div class="tt-info"><div class="tt-tag">Tap to View</div><div class="tt-title">Follow for behind the scenes</div></div></a>
-      <a href="https://www.tiktok.com/@atlas.studio1" target="_blank" class="tt-tile reveal delay-2"><div class="tt-bg" style="background:linear-gradient(180deg,#131313,#1e1e1e)"></div><div class="tt-sh"></div><div class="tt-play"><div class="play-c"><div class="play-t"></div></div></div><div class="tt-info"><div class="tt-tag">Tap to View</div><div class="tt-title">Paint correction timelapses</div></div></a>
-      <a href="https://www.tiktok.com/@atlas.studio1" target="_blank" class="tt-tile reveal delay-3"><div class="tt-bg" style="background:linear-gradient(180deg,#0f0f0f,#181818)"></div><div class="tt-sh"></div><div class="tt-play"><div class="play-c"><div class="play-t"></div></div></div><div class="tt-info"><div class="tt-tag">Tap to View</div><div class="tt-title">Vegas car care tips</div></div></a>
-    </div>
-  </div>
-  <div class="notify-band reveal">
-    <div><div class="nb-hed">Don't Miss a <em>Drop</em></div><div class="nb-sub">Follow across all platforms for new videos, job photos, and product reviews</div></div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a href="https://youtube.com/@AtlasStudioDetailing" target="_blank" class="btn-black">YouTube →</a>
-      <a href="https://instagram.com/AtlasStudioDetailing" target="_blank" class="btn-black">Instagram →</a>
-      <a href="https://www.tiktok.com/@atlas.studio1" target="_blank" class="btn-black">TikTok →</a>
+      <div class="sb-card reveal" style="background:var(--gold)">
+        <div style="font-size:.49rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(0,0,0,.45);margin-bottom:8px">Ready?</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:#000;margin-bottom:8px">Book your Reset</div>
+        <p style="font-size:.62rem;color:rgba(0,0,0,.5);line-height:1.75;margin-bottom:14px">Las Vegas mobile detailing. We come to you.</p>
+        <a href="booking.html" style="background:#000;color:#fff!important;padding:11px 20px;font-size:.53rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;display:block;text-align:center;transition:background .25s">Get a Quote →</a>
+      </div>
     </div>
   </div>
 </div>
@@ -587,5 +638,24 @@ const io = new IntersectionObserver(entries => {
 }, { rootMargin: '0px 0px -50px 0px', threshold: .05 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
-
+<script>
+function submitComment(){
+  const name=document.getElementById('cName').value.trim();
+  const text=document.getElementById('cText').value.trim();
+  if(!name||!text){
+    if(!name)document.getElementById('cName').style.borderColor='rgba(200,169,110,.8)';
+    if(!text)document.getElementById('cText').style.borderColor='rgba(200,169,110,.8)';
+    return;
+  }
+  const list=document.getElementById('commentList');
+  const div=document.createElement('div');
+  div.className='comment-item';
+  div.innerHTML=`<div class="ci-name">${name}</div><div class="ci-date">Just now</div><div class="ci-text">${text}</div><span class="ci-like" onclick="this.textContent=this.textContent.includes('♡')?'♥  Liked':'♡  Like'">♡  Like</span>`;
+  list.appendChild(div);
+  document.getElementById('cName').value='';
+  document.getElementById('cEmail').value='';
+  document.getElementById('cText').value='';
+  div.scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
 </body></html>

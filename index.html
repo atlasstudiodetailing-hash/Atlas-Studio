@@ -4,667 +4,443 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atlas Studio Detailing — Las Vegas</title>
+<title>Atlas Studio Detailing | Mobile Paint Correction – Las Vegas</title>
+<meta name="description" content="Las Vegas mobile detailing for people who treat their vehicles like assets. Paint correction, interior resets, ceramic coating, and monthly maintenance plans.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style id="global">
+/* ═══════════════════════════════════════
+   ATLAS STUDIO DETAILING — GLOBAL STYLES
+   ═══════════════════════════════════════ */
+:root {
+  --black:    #0a0a0a;
+  --dark:     #111111;
+  --charcoal: #171717;
+  --white:    #f6f3ee;
+  --gold:     #c8a96e;
+  --gold-lt:  #dfc18e;
+  --gold-dim: rgba(200,169,110,.12);
+  --muted:    #908b86;
+  --mid:      #b5afa9;
+  --border:   rgba(255,255,255,.07);
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(–black);color:var(–white);font-family:‘Montserrat’,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── ZERO BLUE LINKS ── */
+a{color:inherit;text-decoration:none}
+a,a:link,a:visited,a:hover,a:active,a:focus{color:inherit!important;text-decoration:none!important;-webkit-tap-highlight-color:transparent}
+
+/* ── CURSOR ── */
+.cursor{position:fixed;width:8px;height:8px;background:var(–gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid var(–gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .14s,top .14s;opacity:.45}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:20px 5vw;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(–border);transition:padding .3s}
+nav.scrolled{padding:14px 5vw;background:rgba(10,10,10,.98)}
+.nav-logo{font-family:‘Cormorant Garamond’,serif;font-size:.95rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(–white)!important}
+.nav-logo span{color:var(–gold)!important}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{color:var(–muted)!important;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;transition:color .25s;border-bottom:1px solid transparent;padding-bottom:2px}
+.nav-links a:hover,.nav-links a.active{color:var(–gold)!important;border-bottom-color:var(–gold)}
+.nav-cta{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(–black)!important;background:var(–gold);padding:10px 22px;transition:background .25s;white-space:nowrap}
+.nav-cta:hover{background:var(–gold-lt);color:var(–black)!important}
+
+/* ── INNER PAGE HERO ── */
+.page-hero{padding:158px 5vw 80px;background:var(–charcoal);position:relative;overflow:hidden}
+.page-hero::after{content:’’;position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(–gold),transparent)}
+.ph-eyebrow{font-size:.54rem;letter-spacing:.38em;text-transform:uppercase;color:var(–gold);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.ph-eyebrow::before{content:’’;display:block;width:30px;height:1px;background:var(–gold)}
+.ph-title{font-family:‘Cormorant Garamond’,serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:300;line-height:1;color:var(–white)}
+.ph-title em{font-style:italic;color:var(–gold)}
+.ph-sub{font-size:.73rem;color:var(–mid);line-height:1.9;max-width:480px;margin-top:16px;font-weight:300}
+.ph-letter{position:absolute;right:5vw;top:50%;transform:translateY(-50%);font-family:‘Cormorant Garamond’,serif;font-size:20rem;font-weight:300;color:rgba(200,169,110,.04);line-height:1;pointer-events:none;user-select:none}
+
+/* ── SECTION LABELS ── */
+.label{font-size:.54rem;letter-spacing:.36em;text-transform:uppercase;color:var(–gold);margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.label::before{content:’’;display:block;width:30px;height:1px;background:var(–gold)}
+.title{font-family:‘Cormorant Garamond’,serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.1;color:var(–white)}
+.title em{font-style:italic;color:var(–gold)}
+.copy{font-size:.74rem;line-height:2;color:var(–mid);font-weight:300}
+
+/* ── BUTTONS ── */
+.btn-gold{background:var(–gold);color:var(–black)!important;padding:14px 34px;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;transition:background .25s;display:inline-block}
+.btn-gold:hover{background:var(–gold-lt);color:var(–black)!important}
+.btn-dark{background:var(–black);color:var(–white)!important;padding:14px 34px;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;border:1px solid rgba(255,255,255,.12);transition:background .25s;display:inline-block}
+.btn-dark:hover{background:#1c1c1c;color:var(–white)!important}
+.btn-outline{color:var(–white)!important;padding:13px 30px;font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;border:1px solid rgba(255,255,255,.18);transition:all .25s;display:inline-block}
+.btn-outline:hover{border-color:var(–gold);color:var(–gold)!important}
+.btn-ghost{color:var(–gold)!important;padding:9px 18px;font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(200,169,110,.38);transition:all .25s;display:inline-block}
+.btn-ghost:hover{background:var(–gold);color:var(–black)!important}
+.btn-black{background:var(–black);color:var(–white)!important;padding:14px 34px;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;border:1px solid rgba(255,255,255,.08);transition:background .25s;display:inline-block}
+.btn-black:hover{background:#181818;color:var(–white)!important}
+
+/* ── MARQUEE ── */
+.marquee-wrap{overflow:hidden;padding:40px 0;border-top:1px solid var(–border);border-bottom:1px solid var(–border);background:var(–black)}
+.marquee-track{display:flex;gap:48px;animation:scroll 28s linear infinite;white-space:nowrap}
+.m-item{font-family:‘Cormorant Garamond’,serif;font-size:1.75rem;font-weight:300;color:#3a3a3a;display:flex;align-items:center;gap:24px;flex-shrink:0}
+.m-item.bright{color:var(–mid)}
+.m-dot{width:4px;height:4px;background:var(–gold);border-radius:50%;flex-shrink:0}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SCROLL REVEAL — always visible, JS enhances with animation ── */
+.reveal{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+.js-ready .reveal{opacity:0;transform:translateY(24px)}
+.js-ready .reveal.in-view{opacity:1!important;transform:none!important}
+
+/* ── FOOTER ── */
+footer{background:var(–charcoal);border-top:1px solid var(–border);padding:68px 5vw 38px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.footer-brand{font-family:‘Cormorant Garamond’,serif;font-size:1.5rem;font-weight:300;color:var(–white);margin-bottom:12px}
+.footer-brand span{color:var(–gold)!important}
+.footer-tag{font-size:.64rem;color:var(–muted);line-height:1.9;max-width:250px;margin-bottom:22px;font-weight:300}
+.footer-row{display:flex;align-items:center;gap:10px;font-size:.64rem;color:var(–mid)!important;margin-bottom:9px;transition:color .25s}
+.footer-row:hover{color:var(–gold)!important}
+.f-ico{width:26px;height:26px;border:1px solid var(–border);display:flex;align-items:center;justify-content:center;font-size:.64rem;flex-shrink:0;color:var(–muted)}
+.footer-head{font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(–gold);margin-bottom:20px}
+.footer-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-list a{font-size:.68rem;color:var(–muted)!important;transition:color .25s;font-weight:300}
+.footer-list a:hover{color:var(–white)!important}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(–border)}
+.footer-copy{font-size:.52rem;color:var(–muted);letter-spacing:.12em}
+.footer-tel{font-family:‘Cormorant Garamond’,serif;font-size:1.05rem;color:var(–gold)!important;letter-spacing:.05em}
+
+/* ── SHARED ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+body{cursor:auto}
+.cursor,.cursor-ring{display:none}
+.nav-links{display:none}
+nav{padding:16px 5vw}
+.footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+.ph-letter{display:none}
+.page-hero{padding:128px 5vw 60px}
+}
+@media(max-width:520px){
+.footer-grid{grid-template-columns:1fr}
+}
+
+</style>
 <style>
-  :root {
-    --black: #080808;
-    --white: #f5f3ef;
-    --gold: #c9a84c;
-    --gold-light: #e8d5a3;
-    --gray: #1a1a1a;
-    --gray-mid: #2e2e2e;
-    --text-muted: #888;
-  }
+/* ── HERO ── */
+#hero{min-height:100vh;background:#e8e4dc;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-lines{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(0,0,0,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,0,0,.045) 1px,transparent 1px);background-size:72px 72px;pointer-events:none}
+.hero-left{position:relative;z-index:2;padding:160px 5vw 100px;max-width:58%}
+.h-eye{font-size:.54rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp .9s .15s forwards}
+.h-eye::before{content:'';display:block;width:30px;height:1px;background:var(--gold)}
+.h-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,8.5vw,7rem);font-weight:300;line-height:.95;color:#111;margin-bottom:26px;opacity:0;animation:fadeUp .9s .3s forwards}
+.h-title em{font-style:italic;color:var(--gold)}
+.h-sub{font-size:.72rem;line-height:1.95;color:#525252;font-weight:300;max-width:440px;margin-bottom:40px;opacity:0;animation:fadeUp .9s .45s forwards}
+.h-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .6s forwards}
+.h-stats{display:flex;gap:0;margin-top:52px;padding-top:36px;border-top:1px solid rgba(0,0,0,.1);opacity:0;animation:fadeIn .9s .85s forwards}
+.h-stat{padding-right:32px;margin-right:32px;border-right:1px solid rgba(0,0,0,.1)}
+.h-stat:last-child{border-right:none;margin-right:0;padding-right:0}
+.h-stat-n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--gold);display:block;line-height:1}
+.h-stat-l{font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.38);margin-top:3px;display:block}
 
-- { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+/* Right dark panel */
+.hero-right{position:absolute;right:0;top:0;bottom:0;width:38%;background:var(–black);display:flex;flex-direction:column;overflow:hidden}
+.hero-right::before{content:’’;position:absolute;left:0;top:0;bottom:0;width:100px;background:linear-gradient(to right,#e8e4dc,transparent);z-index:2;pointer-events:none}
+.hr-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(200,169,110,.14) 0%,transparent 65%)}
+.hr-car{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:40px}
+.hr-car svg{width:100%;max-width:360px;opacity:.35}
+.hr-bottom{position:absolute;bottom:0;left:0;right:0;background:var(–charcoal);border-top:1px solid var(–border);display:flex}
+.hr-price{flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(–border)}
+.hr-price:last-child{border-right:none}
+.hr-p-n{font-family:‘Cormorant Garamond’,serif;font-size:1.5rem;color:var(–gold);display:block;line-height:1}
+.hr-p-l{font-size:.46rem;letter-spacing:.14em;text-transform:uppercase;color:var(–muted);margin-top:4px;display:block}
+.h-accent{position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,var(–gold),transparent)}
 
-body {
-background: var(–black);
-color: var(–white);
-font-family: ‘Montserrat’, sans-serif;
-overflow-x: hidden;
-cursor: none;
+/* ── NAV CARDS ── */
+.nav-cards{padding:90px 5vw;background:var(–black)}
+.nc-head{margin-bottom:44px}
+.nc-hed{font-family:‘Cormorant Garamond’,serif;font-size:clamp(1.9rem,3vw,2.5rem);font-weight:300;color:var(–white)}
+.nc-hed em{font-style:italic;color:var(–gold)}
+.nc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.nc-card{background:var(–charcoal);padding:34px 26px;display:flex;flex-direction:column;justify-content:space-between;min-height:240px;position:relative;overflow:hidden;transition:background .3s}
+.nc-card::after{content:’’;position:absolute;bottom:0;left:0;right:0;height:2px;background:var(–gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.nc-card:hover{background:#1b1b1b}
+.nc-card:hover::after{transform:scaleX(1)}
+.nc-n{font-family:‘Cormorant Garamond’,serif;font-size:2.8rem;font-weight:300;color:rgba(200,169,110,.09);line-height:1;margin-bottom:auto}
+.nc-name{font-family:‘Cormorant Garamond’,serif;font-size:1.05rem;font-weight:300;color:var(–white);margin-bottom:7px}
+.nc-desc{font-size:.58rem;color:var(–muted);line-height:1.7;margin-bottom:16px;font-weight:300}
+.nc-arrow{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(–gold);transition:letter-spacing .3s}
+.nc-card:hover .nc-arrow{letter-spacing:.26em}
+.nc-card.cta-card{background:rgba(200,169,110,.09);border:1px solid rgba(200,169,110,.2)}
+.nc-card.cta-card .nc-n{color:rgba(200,169,110,.18)}
+.nc-card.cta-card .nc-name{color:var(–gold)}
+
+/* ── PHILOSOPHY STRIP ── */
+.philo{padding:90px 5vw;background:var(–charcoal);position:relative}
+.philo::before{content:’’;position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(–gold),transparent)}
+.philo-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.philo-q{font-family:‘Cormorant Garamond’,serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-style:italic;font-weight:300;line-height:1.3;color:var(–white)}
+.philo-q span{color:var(–gold)}
+.philo-attr{font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(–gold);margin-top:16px}
+.philo-right .copy{margin-bottom:22px}
+
+/* ── CTA STRIP ── */
+.cta-strip{background:var(–gold);padding:72px 5vw;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.cta-strip-hed{font-family:‘Cormorant Garamond’,serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;color:var(–black)}
+.cta-strip-hed em{font-style:italic}
+.cta-strip-sub{font-size:.64rem;color:rgba(0,0,0,.5);margin-top:6px;letter-spacing:.1em}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+
+@media(max-width:900px){
+.hero-right{display:none}
+.hero-left{max-width:100%;padding:140px 5vw 80px}
+.nc-grid{grid-template-columns:1fr 1fr}
+.philo-inner{grid-template-columns:1fr;gap:40px}
+.cta-strip{flex-direction:column;align-items:flex-start}
 }
-
-/* Kill ALL default blue link colors globally */
-a { color: inherit; text-decoration: none; }
-a:visited { color: inherit; }
-a:link { color: inherit; }
-
-/* Custom cursor */
-.cursor { position: fixed; width: 10px; height: 10px; background: var(–gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s ease; }
-.cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid var(–gold); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all 0.18s ease; opacity: 0.6; }
-
-/* NAV */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(to bottom,rgba(8,8,8,0.95),transparent); transition: background 0.4s; }
-.nav-logo { font-family: ‘Cormorant Garamond’,serif; font-size: 1.1rem; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: var(–white); }
-.nav-logo span { color: var(–gold); }
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a { color: var(–text-muted); font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; transition: color 0.3s; }
-.nav-links a:hover { color: var(–gold); }
-.nav-cta { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(–black); background: var(–gold); padding: 10px 24px; transition: background 0.3s; display: inline-block; }
-.nav-cta:hover { background: var(–gold-light); color: var(–black); }
-
-/* HERO */
-#home { height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 60%,rgba(201,168,76,0.08) 0%,transparent 60%), linear-gradient(135deg,#080808 0%,#111 50%,#080808 100%); }
-.grid-lines { position: absolute; inset: 0; opacity: 0.06; background-image: linear-gradient(to right,var(–white) 1px,transparent 1px), linear-gradient(to bottom,var(–white) 1px,transparent 1px); background-size: 80px 80px; animation: gridShift 20s linear infinite; }
-@keyframes gridShift { 0% { transform: translateY(0); } 100% { transform: translateY(80px); } }
-.hero-content { position: relative; z-index: 2; padding: 0 8vw; max-width: 900px; }
-.hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(–gold); margin-bottom: 28px; display: flex; align-items: center; gap: 16px; opacity: 0; animation: fadeUp 1s 0.3s forwards; }
-.hero-eyebrow::before { content: ‘’; display: block; width: 40px; height: 1px; background: var(–gold); }
-.hero-title { font-family: ‘Cormorant Garamond’,serif; font-size: clamp(3.5rem,8vw,7rem); font-weight: 300; line-height: 1.0; margin-bottom: 32px; opacity: 0; animation: fadeUp 1s 0.5s forwards; }
-.hero-title em { font-style: italic; color: var(–gold); }
-.hero-sub { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(–text-muted); margin-bottom: 48px; line-height: 2; opacity: 0; animation: fadeUp 1s 0.7s forwards; }
-.hero-actions { display: flex; gap: 20px; align-items: center; opacity: 0; animation: fadeUp 1s 0.9s forwards; }
-.btn-primary { background: var(–gold); color: var(–black); padding: 16px 40px; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 700; transition: background 0.3s; display: inline-block; }
-.btn-primary:hover { background: var(–gold-light); color: var(–black); }
-.btn-ghost { color: var(–white); padding: 16px 40px; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s; display: inline-block; }
-.btn-ghost:hover { border-color: var(–gold); color: var(–gold); }
-.hero-scroll { position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeUp 1s 1.2s forwards; }
-.hero-scroll span { font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(–text-muted); }
-.scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom,var(–gold),transparent); animation: scrollPulse 2s ease-in-out infinite; }
-@keyframes scrollPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
-.hero-float { position: absolute; right: 0; top: 0; width: 50%; height: 100%; overflow: hidden; opacity: 0; animation: fadeIn 1.5s 0.5s forwards; }
-.hero-float::before { content: ‘’; position: absolute; inset: 0; background: linear-gradient(to right,var(–black) 0%,transparent 40%); z-index: 1; }
-.hero-img-stack { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; }
-.hero-img-panel { background: var(–gray); overflow: hidden; position: relative; }
-.panel-1 { grid-column: 1/3; background: linear-gradient(135deg,#111 0%,#1a1a1a 50%,#0d0d0d 100%); }
-.panel-2 { background: linear-gradient(to br,#131313,#1c1c1c); }
-.panel-3 { background: linear-gradient(to br,#0f0f0f,#181818); }
-.panel-shine { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 40%,rgba(201,168,76,0.15) 0%,transparent 60%); }
-.car-art { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-/* MARQUEE */
-.services-strip { padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); overflow: hidden; }
-.services-track { display: flex; gap: 60px; animation: marquee 22s linear infinite; white-space: nowrap; }
-.service-item { font-family: ‘Cormorant Garamond’,serif; font-size: 2rem; font-weight: 300; color: var(–gray-mid); display: flex; align-items: center; gap: 30px; flex-shrink: 0; }
-.service-item.highlight { color: var(–white); }
-.service-dot { width: 6px; height: 6px; background: var(–gold); border-radius: 50%; flex-shrink: 0; }
-@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-/* SHARED */
-.section-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(–gold); margin-bottom: 16px; display: flex; align-items: center; gap: 16px; }
-.section-label::before { content: ‘’; display: block; width: 40px; height: 1px; background: var(–gold); }
-.section-title { font-family: ‘Cormorant Garamond’,serif; font-size: clamp(2.5rem,4vw,3.5rem); font-weight: 300; line-height: 1.1; }
-.section-title em { font-style: italic; color: var(–gold); }
-.section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 80px; }
-.body-text { font-size: 0.8rem; line-height: 2; color: var(–text-muted); margin-bottom: 24px; font-weight: 300; }
-
-/* STORY */
-#story { padding: 160px 8vw; }
-.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.story-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(–gold); margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
-.story-label::before { content: ‘’; display: block; width: 40px; height: 1px; background: var(–gold); }
-.story-title { font-family: ‘Cormorant Garamond’,serif; font-size: clamp(2.5rem,4vw,3.5rem); font-weight: 300; line-height: 1.15; margin-bottom: 32px; }
-.story-title em { font-style: italic; color: var(–gold); }
-.story-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 48px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.08); }
-.stat-number { font-family: ‘Cormorant Garamond’,serif; font-size: 2.5rem; font-weight: 300; color: var(–gold); display: block; line-height: 1; margin-bottom: 8px; }
-.stat-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–text-muted); }
-.story-visual { position: relative; }
-.story-img-main { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg,#1a1a1a,#111); position: relative; overflow: hidden; }
-.story-img-accent { position: absolute; bottom: -40px; left: -40px; width: 60%; aspect-ratio: 4/3; background: linear-gradient(135deg,#131313,#1c1c1c); border: 4px solid var(–black); }
-.gold-border { position: absolute; top: 24px; right: -24px; width: 100%; height: 100%; border: 1px solid var(–gold); opacity: 0.3; pointer-events: none; }
-
-/* GALLERY */
-#gallery { padding: 160px 8vw; }
-.gallery-filter { display: flex; gap: 24px; }
-.filter-btn { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–text-muted); background: none; border: none; cursor: none; padding: 8px 0; border-bottom: 1px solid transparent; transition: all 0.3s; font-family: ‘Montserrat’,sans-serif; }
-.filter-btn:hover, .filter-btn.active { color: var(–gold); border-bottom-color: var(–gold); }
-.gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); grid-auto-rows: 300px; gap: 3px; }
-.gallery-item { position: relative; overflow: hidden; cursor: none; }
-.gallery-item:nth-child(1) { grid-column: 1/3; grid-row: 1/3; }
-.gallery-item:nth-child(4) { grid-column: 2/4; }
-.gallery-bg { width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
-.g1 { background: linear-gradient(135deg,#1a1a1a 0%,#222 40%,#111 100%); }
-.g2 { background: linear-gradient(to br,#161616,#1e1e1e); }
-.g3 { background: linear-gradient(135deg,#0f0f0f,#1a1a1a); }
-.g4 { background: linear-gradient(to br,#181818,#232323); }
-.g5 { background: linear-gradient(135deg,#121212,#1c1c1c); }
-.g6 { background: linear-gradient(to br,#141414,#1f1f1f); }
-.g-shine { position: absolute; inset: 0; background: radial-gradient(ellipse at 40% 30%,rgba(201,168,76,0.12) 0%,transparent 65%); }
-.g-label { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px; background: linear-gradient(to top,rgba(0,0,0,0.8) 0%,transparent 60%); opacity: 0; transition: opacity 0.4s; }
-.gallery-item:hover .g-label { opacity: 1; }
-.gallery-item:hover .gallery-bg { transform: scale(1.05); }
-.g-tag { font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(–gold); margin-bottom: 8px; }
-.g-title { font-family: ‘Cormorant Garamond’,serif; font-size: 1.4rem; font-weight: 300; color: var(–white); }
-.gallery-note { margin-top: 48px; text-align: center; }
-.gallery-note p { font-size: 0.7rem; color: var(–text-muted); letter-spacing: 0.1em; margin-bottom: 16px; }
-.gallery-note a { color: var(–gold); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; }
-
-/* CONTENT / YOUTUBE */
-#content { padding: 160px 8vw; background: linear-gradient(180deg,var(–black) 0%,#0d0d0d 50%,var(–black) 100%); position: relative; }
-#content::before { content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right,transparent,var(–gold),transparent); }
-.content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.content-philosophy { margin-top: 40px; padding: 32px; border-left: 2px solid var(–gold); background: rgba(201,168,76,0.04); }
-.philosophy-quote { font-family: ‘Cormorant Garamond’,serif; font-size: 1.4rem; font-weight: 300; font-style: italic; line-height: 1.5; color: var(–white); margin-bottom: 12px; }
-.philosophy-attr { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(–gold); }
-.video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
-.video-card { position: relative; aspect-ratio: 16/9; background: var(–gray); overflow: hidden; cursor: none; transition: transform 0.3s; }
-.video-card:first-child { grid-column: 1/3; aspect-ratio: 16/7; }
-.video-card:hover { transform: scale(0.99); }
-.video-bg { position: absolute; inset: 0; background: linear-gradient(135deg,#1a1a1a,#111); }
-.video-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); transition: background 0.3s; }
-.video-card:hover .video-play { background: rgba(0,0,0,0.1); }
-.play-btn { width: 56px; height: 56px; border: 1px solid rgba(201,168,76,0.6); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(201,168,76,0.1); transition: all 0.3s; backdrop-filter: blur(4px); }
-.video-card:hover .play-btn { background: var(–gold); border-color: var(–gold); }
-.play-triangle { width: 0; height: 0; border-style: solid; border-width: 9px 0 9px 18px; border-color: transparent transparent transparent var(–gold); margin-left: 4px; transition: border-color 0.3s; }
-.video-card:hover .play-triangle { border-color: transparent transparent transparent var(–black); }
-.video-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px; background: linear-gradient(to top,rgba(0,0,0,0.9),transparent); }
-.video-tag { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(–gold); margin-bottom: 6px; }
-.video-title { font-family: ‘Cormorant Garamond’,serif; font-size: 1.1rem; font-weight: 300; color: var(–white); }
-.video-cta { margin-top: 40px; display: flex; align-items: center; gap: 24px; }
-.youtube-sub { font-size: 0.65rem; letter-spacing: 0.15em; color: var(–text-muted); }
-
-/* SHOP */
-#shop { padding: 160px 8vw; position: relative; }
-#shop::before { content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right,transparent,var(–gold),transparent); }
-.shop-intro { max-width: 600px; margin-bottom: 80px; }
-.shop-categories { display: flex; gap: 0; margin-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.08); overflow-x: auto; }
-.shop-cat-btn { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(–text-muted); background: none; border: none; padding: 16px 28px; cursor: none; font-family: ‘Montserrat’,sans-serif; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.3s; white-space: nowrap; }
-.shop-cat-btn.active { color: var(–gold); border-bottom-color: var(–gold); }
-.shop-cat-btn:hover { color: var(–white); }
-.shop-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
-.product-card { background: var(–gray); position: relative; overflow: hidden; cursor: none; transition: transform 0.3s; }
-.product-card:hover { transform: translateY(-4px); }
-.product-img { aspect-ratio: 1; position: relative; overflow: hidden; background: linear-gradient(135deg,#1a1a1a,#111); }
-.product-img-bg { position: absolute; inset: 0; transition: transform 0.5s ease; }
-.product-card:hover .product-img-bg { transform: scale(1.06); }
-.product-shine { position: absolute; inset: 0; background: radial-gradient(ellipse at 40% 35%,rgba(201,168,76,0.15) 0%,transparent 65%); }
-.product-badge { position: absolute; top: 16px; right: 16px; font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; background: var(–gold); color: var(–black); padding: 5px 10px; font-weight: 700; }
-.product-icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0.12; font-size: 4rem; }
-.product-info { padding: 24px; border-top: 1px solid rgba(255,255,255,0.05); }
-.product-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(–gold); margin-bottom: 8px; }
-.product-name { font-family: ‘Cormorant Garamond’,serif; font-size: 1.1rem; font-weight: 300; color: var(–white); margin-bottom: 6px; }
-.product-desc { font-size: 0.62rem; color: var(–text-muted); line-height: 1.6; margin-bottom: 16px; }
-.product-footer { display: flex; align-items: center; justify-content: space-between; }
-.product-price { font-family: ‘Cormorant Garamond’,serif; font-size: 1.3rem; color: var(–gold); font-weight: 300; }
-.product-btn { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; background: none; border: 1px solid rgba(201,168,76,0.4); color: var(–gold); padding: 8px 14px; cursor: none; font-family: ‘Montserrat’,sans-serif; transition: all 0.3s; }
-.product-btn:hover { background: var(–gold); color: var(–black); }
-.shop-note { margin-top: 48px; padding: 32px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.shop-note-text { font-size: 0.7rem; color: var(–text-muted); line-height: 1.8; font-weight: 300; }
-.shop-note-text strong { color: var(–white); font-weight: 500; }
-
-/* BOOKING */
-#booking { padding: 160px 8vw; background: linear-gradient(180deg,var(–black),var(–gray) 50%,var(–black)); position: relative; }
-#booking::before { content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right,transparent,var(–gold),transparent); }
-.booking-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-.booking-info { position: sticky; top: 120px; }
-.packages { margin-top: 48px; display: flex; flex-direction: column; gap: 2px; }
-.package { padding: 24px; border: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; transition: all 0.3s; cursor: none; }
-.package:hover { border-color: var(–gold); background: rgba(201,168,76,0.05); }
-.pkg-name { font-family: ‘Cormorant Garamond’,serif; font-size: 1.1rem; margin-bottom: 4px; color: var(–white); }
-.pkg-desc { font-size: 0.6rem; letter-spacing: 0.1em; color: var(–text-muted); }
-.pkg-price { font-family: ‘Cormorant Garamond’,serif; font-size: 1.5rem; color: var(–gold); font-weight: 300; }
-.contact-box { margin-top: 40px; padding: 24px; border: 1px solid rgba(201,168,76,0.3); background: rgba(201,168,76,0.04); }
-.contact-box-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–gold); margin-bottom: 8px; }
-.contact-box-number { font-family: ‘Cormorant Garamond’,serif; font-size: 2rem; color: var(–white); font-weight: 300; display: block; }
-.booking-form { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 48px; }
-.form-title { font-family: ‘Cormorant Garamond’,serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 8px; color: var(–white); }
-.form-sub { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–text-muted); margin-bottom: 40px; }
-.form-group { margin-bottom: 24px; }
-.form-group label { display: block; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–text-muted); margin-bottom: 10px; }
-.form-group input, .form-group select, .form-group textarea { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: var(–white); padding: 14px 18px; font-family: ‘Montserrat’,sans-serif; font-size: 0.75rem; outline: none; transition: border-color 0.3s; appearance: none; }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(–gold); }
-.form-group select option { background: #1a1a1a; color: var(–white); }
-.form-group textarea { resize: vertical; min-height: 100px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form-submit { width: 100%; background: var(–gold); color: var(–black); border: none; padding: 18px; font-family: ‘Montserrat’,sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 700; cursor: none; transition: background 0.3s; margin-top: 8px; }
-.form-submit:hover { background: var(–gold-light); }
-.form-note { font-size: 0.6rem; color: var(–text-muted); text-align: center; margin-top: 16px; letter-spacing: 0.1em; }
-.success-msg { display: none; text-align: center; padding: 48px; }
-.success-msg.show { display: block; }
-.success-icon { font-size: 2rem; color: var(–gold); margin-bottom: 16px; }
-
-/* FOOTER */
-footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 80px 8vw 48px; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 80px; }
-.footer-brand-name { font-family: ‘Cormorant Garamond’,serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 16px; color: var(–white); }
-.footer-brand-name span { color: var(–gold); }
-.footer-tagline { font-size: 0.7rem; color: var(–text-muted); line-height: 1.8; max-width: 280px; margin-bottom: 32px; font-weight: 300; }
-.footer-contact-item { display: flex; align-items: center; gap: 12px; font-size: 0.7rem; color: var(–text-muted); margin-bottom: 12px; transition: color 0.3s; }
-.footer-contact-item:hover { color: var(–gold); }
-.footer-contact-icon { width: 32px; height: 32px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0; }
-.footer-col-title { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(–gold); margin-bottom: 28px; }
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-.footer-links a { font-size: 0.75rem; color: var(–text-muted); transition: color 0.3s; font-weight: 300; }
-.footer-links a:hover { color: var(–white); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); }
-.footer-copy { font-size: 0.6rem; color: var(–text-muted); letter-spacing: 0.15em; }
-.footer-phone { font-family: ‘Cormorant Garamond’,serif; font-size: 1.3rem; color: var(–gold); letter-spacing: 0.05em; }
-
-/* RESPONSIVE */
-@media (max-width: 1100px) { .shop-grid { grid-template-columns: repeat(2,1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 900px) {
-nav { padding: 20px 24px; }
-.nav-links { display: none; }
-.hero-float { display: none; }
-.hero-content { max-width: 100%; padding: 0 24px; }
-.story-grid, .booking-inner, .content-grid { grid-template-columns: 1fr; gap: 48px; }
-.gallery-grid { grid-template-columns: 1fr 1fr; }
-.gallery-item:nth-child(1) { grid-column: 1; grid-row: 1; }
-.gallery-item:nth-child(4) { grid-column: 1; }
-.booking-info { position: static; }
-#home, #gallery, #story, #booking, #shop, #content { padding: 100px 24px; }
-.section-header { flex-direction: column; align-items: flex-start; gap: 24px; }
-.video-grid { grid-template-columns: 1fr; }
-.video-card:first-child { grid-column: 1; }
-.shop-note { flex-direction: column; }
-.footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+@media(max-width:500px){
+.nc-grid{grid-template-columns:1fr}
 }
-@media (max-width: 500px) { .shop-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
 </style>
 
 </head>
 <body>
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curRing"></div>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- NAV -->
-
-<nav id="mainNav">
-  <a href="#home" class="nav-logo">Atlas <span>Studio</span> Detailing</a>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Atlas <span>Studio</span></a>
   <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#story">Story</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#content">Content</a></li>
-    <li><a href="#shop">Shop</a></li>
-    <li><a href="#booking">Booking</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="content.html">Content</a></li>
+    <li><a href="booking.html">Contact</a></li>
   </ul>
-  <a href="sms:7027633539?&body=Hey%2C%20I%27d%20like%20to%20book%20a%20detail%20with%20Atlas%20Studio." class="nav-cta">Book Now</a>
+  <a href="booking.html" class="nav-cta">Book a Reset</a>
 </nav>
 
-<!-- HERO -->
+<!-- ════ HERO ════ -->
 
-<section id="home">
-  <div class="hero-bg"></div>
-  <div class="grid-lines"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Las Vegas · Mobile Detailing</div>
-    <h1 class="hero-title">Where Craft<br>Meets <em>Obsession</em></h1>
-    <p class="hero-sub">Mobile Interior Restoration &amp; Paint Correction<br>Serving Las Vegas — We Come To You</p>
-    <div class="hero-actions">
-      <a href="sms:7027633539?&body=Hey%2C%20I%27d%20like%20to%20book%20a%20detail." class="btn-primary">Book A Detail</a>
-      <a href="#gallery" class="btn-ghost">View Our Work</a>
+<section id="hero">
+  <div class="hero-lines"></div>
+
+  <div class="hero-left">
+    <div class="h-eye">Las Vegas · Mobile Detailing</div>
+    <h1 class="h-title">Where Craft<br>Meets <em>Obsession</em></h1>
+    <p class="h-sub">Las Vegas mobile detailing for people who treat their vehicles like assets. Paint correction, interior resets, and maintenance plans that keep your car ready for anything.</p>
+    <div class="h-btns">
+      <a href="booking.html" class="btn-dark">Book a Reset</a>
+      <a href="services.html" style="color:#2a2a2a!important;padding:13px 30px;font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;border:1px solid rgba(0,0,0,.2);display:inline-block;transition:border-color .25s">See Services</a>
+    </div>
+    <div class="h-stats">
+      <div class="h-stat"><span class="h-stat-n">5★</span><span class="h-stat-l">Client Rated</span></div>
+      <div class="h-stat"><span class="h-stat-n">100%</span><span class="h-stat-l">Mobile</span></div>
+      <div class="h-stat"><span class="h-stat-n">Vegas</span><span class="h-stat-l">Based</span></div>
     </div>
   </div>
-  <div class="hero-float">
-    <div class="hero-img-stack">
-      <div class="hero-img-panel panel-1">
-        <div class="panel-shine"></div>
-        <svg class="car-art" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;opacity:0.2;">
-          <ellipse cx="200" cy="140" rx="180" ry="20" fill="rgba(201,168,76,0.3)"/>
-          <path d="M40 130 Q80 80 150 70 Q200 60 250 70 Q320 80 360 130 Z" fill="rgba(201,168,76,0.5)" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
-          <path d="M100 100 Q130 65 170 60 Q230 55 270 62 Q310 70 330 100 Z" fill="rgba(201,168,76,0.3)"/>
-          <circle cx="110" cy="140" r="22" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="2"/>
-          <circle cx="110" cy="140" r="10" fill="rgba(201,168,76,0.3)"/>
-          <circle cx="290" cy="140" r="22" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="2"/>
-          <circle cx="290" cy="140" r="10" fill="rgba(201,168,76,0.3)"/>
-        </svg>
-      </div>
-      <div class="hero-img-panel panel-2"><div class="panel-shine"></div></div>
-      <div class="hero-img-panel panel-3"><div class="panel-shine" style="background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,0.1) 0%,transparent 60%)"></div></div>
+
+  <!-- Dark right panel with car silhouette -->
+
+  <div class="hero-right">
+    <div class="hr-glow"></div>
+    <div class="hr-car">
+      <svg viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <ellipse cx="250" cy="175" rx="198" ry="18" fill="rgba(200,169,110,.25)"/>
+        <path d="M60 155 Q115 90 190 72 Q250 60 310 72 Q385 90 440 155 L450 158 Q410 145 390 145 L370 145 Q340 90 310 78 Q250 66 190 78 Q160 90 130 145 L110 145 Q90 145 50 158 Z" fill="rgba(200,169,110,.6)" stroke="rgba(200,169,110,1)" stroke-width="1.2"/>
+        <path d="M130 120 Q165 75 210 66 Q275 57 320 68 Q360 78 380 120 Z" fill="rgba(200,169,110,.2)" stroke="rgba(200,169,110,.5)" stroke-width=".8"/>
+        <rect x="140" y="118" width="60" height="25" rx="3" fill="rgba(200,169,110,.15)" stroke="rgba(200,169,110,.45)" stroke-width=".8"/>
+        <rect x="300" y="118" width="60" height="25" rx="3" fill="rgba(200,169,110,.15)" stroke="rgba(200,169,110,.45)" stroke-width=".8"/>
+        <circle cx="148" cy="163" r="28" fill="none" stroke="rgba(200,169,110,.85)" stroke-width="2"/>
+        <circle cx="148" cy="163" r="15" fill="none" stroke="rgba(200,169,110,.45)" stroke-width="1.2"/>
+        <circle cx="148" cy="163" r="5" fill="rgba(200,169,110,.5)"/>
+        <circle cx="352" cy="163" r="28" fill="none" stroke="rgba(200,169,110,.85)" stroke-width="2"/>
+        <circle cx="352" cy="163" r="15" fill="none" stroke="rgba(200,169,110,.45)" stroke-width="1.2"/>
+        <circle cx="352" cy="163" r="5" fill="rgba(200,169,110,.5)"/>
+        <line x1="60" y1="155" x2="440" y2="155" stroke="rgba(200,169,110,.35)" stroke-width=".8"/>
+      </svg>
+    </div>
+    <div class="hr-bottom">
+      <div class="hr-price"><span class="hr-p-n">$249</span><span class="hr-p-l">Interior</span></div>
+      <div class="hr-price"><span class="hr-p-n">$499</span><span class="hr-p-l">Paint Correction</span></div>
+      <div class="hr-price"><span class="hr-p-n">$699</span><span class="hr-p-l">Full Reset</span></div>
     </div>
   </div>
-  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+
+  <div class="h-accent"></div>
 </section>
 
 <!-- MARQUEE -->
 
-<div class="services-strip">
-  <div class="services-track">
-    <div class="service-item highlight">Paint Correction</div><div class="service-dot"></div>
-    <div class="service-item">Interior Restoration</div><div class="service-dot"></div>
-    <div class="service-item highlight">Ceramic Coating</div><div class="service-dot"></div>
-    <div class="service-item">Engine Bay Detailing</div><div class="service-dot"></div>
-    <div class="service-item highlight">Leather Conditioning</div><div class="service-dot"></div>
-    <div class="service-item">Odor Elimination</div><div class="service-dot"></div>
-    <div class="service-item highlight">Full Interior Detail</div><div class="service-dot"></div>
-    <div class="service-item">Headlight Restoration</div><div class="service-dot"></div>
-    <div class="service-item highlight">Paint Correction</div><div class="service-dot"></div>
-    <div class="service-item">Interior Restoration</div><div class="service-dot"></div>
-    <div class="service-item highlight">Ceramic Coating</div><div class="service-dot"></div>
-    <div class="service-item">Engine Bay Detailing</div><div class="service-dot"></div>
-    <div class="service-item highlight">Leather Conditioning</div><div class="service-dot"></div>
-    <div class="service-item">Odor Elimination</div><div class="service-dot"></div>
-    <div class="service-item highlight">Full Interior Detail</div><div class="service-dot"></div>
-    <div class="service-item">Headlight Restoration</div><div class="service-dot"></div>
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="m-item bright">Paint Correction</span><span class="m-dot"></span>
+    <span class="m-item">Interior Reset</span><span class="m-dot"></span>
+    <span class="m-item bright">Ceramic Coating</span><span class="m-dot"></span>
+    <span class="m-item">Leather Conditioning</span><span class="m-dot"></span>
+    <span class="m-item bright">Vegas Sun Protection</span><span class="m-dot"></span>
+    <span class="m-item">Maintenance Plans</span><span class="m-dot"></span>
+    <span class="m-item bright">Engine Bay Detail</span><span class="m-dot"></span>
+    <span class="m-item">Odor Elimination</span><span class="m-dot"></span>
+    <span class="m-item bright">Paint Correction</span><span class="m-dot"></span>
+    <span class="m-item">Interior Reset</span><span class="m-dot"></span>
+    <span class="m-item bright">Ceramic Coating</span><span class="m-dot"></span>
+    <span class="m-item">Leather Conditioning</span><span class="m-dot"></span>
+    <span class="m-item bright">Vegas Sun Protection</span><span class="m-dot"></span>
+    <span class="m-item">Maintenance Plans</span><span class="m-dot"></span>
+    <span class="m-item bright">Engine Bay Detail</span><span class="m-dot"></span>
+    <span class="m-item">Odor Elimination</span><span class="m-dot"></span>
   </div>
 </div>
 
-<!-- STORY -->
+<!-- ════ PAGE NAV CARDS ════ -->
 
-<section id="story">
-  <div class="story-grid">
+<section class="nav-cards">
+  <div class="nc-head">
+    <h2 class="nc-hed">Everything You Need,<br><em>One Click Away</em></h2>
+  </div>
+  <div class="nc-grid">
+    <a href="services.html" class="nc-card reveal">
+      <div class="nc-n">01</div>
+      <div>
+        <div class="nc-name">Services &amp; Pricing</div>
+        <div class="nc-desc">Paint Correction, Interior Reset, Full Reset, Vegas Sun Bundle, and Maintenance Plans.</div>
+        <div class="nc-arrow">View Services →</div>
+      </div>
+    </a>
+    <a href="gallery.html" class="nc-card reveal">
+      <div class="nc-n">02</div>
+      <div>
+        <div class="nc-name">Before &amp; After</div>
+        <div class="nc-desc">Real jobs, real results. Exterior paint correction and interior transformations.</div>
+        <div class="nc-arrow">View Gallery →</div>
+      </div>
+    </a>
+    <a href="shop.html" class="nc-card reveal">
+      <div class="nc-n">03</div>
+      <div>
+        <div class="nc-name">Gear &amp; Shop</div>
+        <div class="nc-desc">Products I actually use, Atlas merch, and gift cards. No filler.</div>
+        <div class="nc-arrow">Visit Shop →</div>
+      </div>
+    </a>
+    <a href="content.html" class="nc-card reveal">
+      <div class="nc-n">04</div>
+      <div>
+        <div class="nc-name">Content</div>
+        <div class="nc-desc">YouTube tutorials, Instagram jobs, TikTok behind the scenes. Follow the craft.</div>
+        <div class="nc-arrow">Follow Along →</div>
+      </div>
+    </a>
+    <a href="booking.html" class="nc-card cta-card reveal">
+      <div class="nc-n">05</div>
+      <div>
+        <div class="nc-name">Book a Reset</div>
+        <div class="nc-desc">Get a custom quote. Text or form — we reply within 24 hours.</div>
+        <div class="nc-arrow">Request a Quote →</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ════ PHILOSOPHY ════ -->
+
+<section class="philo">
+  <div class="philo-inner">
     <div>
-      <div class="story-label">Our Story</div>
-      <h2 class="story-title">Born From a<br><em>Passion</em> for<br>Perfection</h2>
-      <p class="body-text">Atlas Studio Detailing isn't just a service — it's a standard. Built in Las Vegas by someone who believes every vehicle deserves the same obsessive attention to detail, regardless of where it sits in your driveway.</p>
-      <p class="body-text">We bring studio-quality results directly to you. No shop. No waiting. Just a craftsman, the right tools, and an unwavering commitment to transforming your vehicle inside and out.</p>
-      <p class="body-text">Every swirl removed, every leather surface conditioned, every panel corrected — this is how we work, every single time.</p>
-      <div class="story-stats">
-        <div><span class="stat-number">100%</span><span class="stat-label">Mobile Service</span></div>
-        <div><span class="stat-number">5★</span><span class="stat-label">Client Rated</span></div>
-        <div><span class="stat-number">LV</span><span class="stat-label">Las Vegas Based</span></div>
-      </div>
+      <div class="philo-q">"Don't mine for gold.<br><span>Sell the shovel."</span></div>
+      <div class="philo-attr">The Atlas Philosophy</div>
     </div>
-    <div class="story-visual">
-      <div class="story-img-main">
-        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a1a1a,#111 50%,#1c1c1c)"></div>
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(201,168,76,0.15) 0%,transparent 65%)"></div>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.06;">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:8rem;color:var(--gold);font-weight:300;">A</div>
-        </div>
-      </div>
-      <div class="story-img-accent"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 40% 40%,rgba(201,168,76,0.12) 0%,transparent 60%);"></div></div>
-      <div class="gold-border"></div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-
-<section id="gallery">
-  <div class="section-header">
-    <div>
-      <div class="section-label">Our Work</div>
-      <h2 class="section-title">The <em>Details</em><br>Say Everything</h2>
-    </div>
-    <div class="gallery-filter">
-      <button class="filter-btn active" onclick="filterGallery('all',this)">All</button>
-      <button class="filter-btn" onclick="filterGallery('paint',this)">Paint</button>
-      <button class="filter-btn" onclick="filterGallery('interior',this)">Interior</button>
-      <button class="filter-btn" onclick="filterGallery('full',this)">Full Detail</button>
-    </div>
-  </div>
-  <div class="gallery-grid" id="galleryGrid">
-    <div class="gallery-item" data-cat="paint">
-      <div class="gallery-bg g1"><div class="g-shine"></div><div class="car-art"><svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" style="width:90%;height:90%;opacity:0.18;"><path d="M60 200 Q120 130 200 110 Q280 90 360 130 Q420 155 460 200 Z" fill="rgba(201,168,76,0.6)" stroke="rgba(201,168,76,0.8)" stroke-width="1"/><circle cx="145" cy="215" r="35" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="2"/><circle cx="385" cy="215" r="35" fill="none" stroke="rgba(201,168,76,0.7)" stroke-width="2"/></svg></div></div>
-      <div class="g-label"><div class="g-tag">Paint Correction</div><div class="g-title">2-Stage Correction — Black AMG</div></div>
-    </div>
-    <div class="gallery-item" data-cat="interior">
-      <div class="gallery-bg g2" style="height:100%"><div class="g-shine"></div></div>
-      <div class="g-label"><div class="g-tag">Interior</div><div class="g-title">Leather Deep Clean</div></div>
-    </div>
-    <div class="gallery-item" data-cat="full">
-      <div class="gallery-bg g3" style="height:100%"><div class="g-shine"></div></div>
-      <div class="g-label"><div class="g-tag">Full Detail</div><div class="g-title">Porsche 911 — Complete</div></div>
-    </div>
-    <div class="gallery-item" data-cat="paint">
-      <div class="gallery-bg g4" style="height:100%"><div class="g-shine"></div></div>
-      <div class="g-label"><div class="g-tag">Paint Correction</div><div class="g-title">Swirl Removal — White Tesla</div></div>
-    </div>
-    <div class="gallery-item" data-cat="interior">
-      <div class="gallery-bg g5" style="height:100%"><div class="g-shine"></div></div>
-      <div class="g-label"><div class="g-tag">Interior</div><div class="g-title">Full Interior Restoration</div></div>
-    </div>
-    <div class="gallery-item" data-cat="full">
-      <div class="gallery-bg g6" style="height:100%"><div class="g-shine"></div></div>
-      <div class="g-label"><div class="g-tag">Full Detail</div><div class="g-title">Range Rover — Elite Package</div></div>
-    </div>
-  </div>
-  <div class="gallery-note">
-    <p>Swap these panels with your real before &amp; after photos as you build your portfolio.</p>
-    <a href="https://www.instagram.com/AtlasStudioDetailing" target="_blank">Follow @AtlasStudioDetailing →</a>
-  </div>
-</section>
-
-<!-- CONTENT / YOUTUBE -->
-
-<section id="content">
-  <div class="content-grid">
-    <div>
-      <div class="section-label">The Content</div>
-      <h2 class="section-title">Don't Just<br><em>Detail</em> Cars —<br>Teach the World</h2>
-      <p class="body-text" style="margin-top:20px;">The craft deserves an audience. Every detail is a lesson — in patience, in precision, in what it looks like when someone actually cares about their work.</p>
-      <p class="body-text">Follow along as we document real jobs, real results, and the products and techniques that make Atlas Studio what it is.</p>
-      <div class="content-philosophy">
-        <div class="philosophy-quote">"Don't mine for gold. Sell the shovel."</div>
-        <div class="philosophy-attr">The Atlas Philosophy</div>
-      </div>
-      <div class="video-cta">
-        <a href="https://youtube.com/@AtlasStudioDetailing" target="_blank" class="btn-primary">Subscribe on YouTube</a>
-        <span class="youtube-sub">New videos dropping soon</span>
-      </div>
-    </div>
-    <div class="video-grid">
-      <div class="video-card">
-        <div class="video-bg" style="background:linear-gradient(135deg,#1a1a1a,#0f0f0f);"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 40% 40%,rgba(201,168,76,0.15) 0%,transparent 60%)"></div></div>
-        <div class="video-play"><div class="play-btn"><div class="play-triangle"></div></div></div>
-        <div class="video-info"><div class="video-tag">Coming Soon</div><div class="video-title">Full 2-Stage Paint Correction — Start to Finish</div></div>
-      </div>
-      <div class="video-card">
-        <div class="video-bg" style="background:linear-gradient(135deg,#111,#1a1a1a);"></div>
-        <div class="video-play"><div class="play-btn"><div class="play-triangle"></div></div></div>
-        <div class="video-info"><div class="video-tag">Tutorial</div><div class="video-title">Interior Deep Clean — The Right Way</div></div>
-      </div>
-      <div class="video-card">
-        <div class="video-bg" style="background:linear-gradient(135deg,#0d0d0d,#181818);"></div>
-        <div class="video-play"><div class="play-btn"><div class="play-triangle"></div></div></div>
-        <div class="video-info"><div class="video-tag">Products</div><div class="video-title">My Top 5 Detailing Products</div></div>
+    <div class="philo-right">
+      <div class="label">Why Atlas Studio</div>
+      <h2 class="title" style="margin-bottom:18px">Built on One <em>Idea</em></h2>
+      <p class="copy">Atlas Studio was built around one principle: your vehicle is a high-value asset, not a quick wash ticket. We restore it completely, protect it, and keep it that way — on your schedule.</p>
+      <p class="copy" style="margin-top:12px">One detailer. One standard. Las Vegas, Henderson, Summerlin, and surrounding areas.</p>
+      <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+        <a href="services.html" class="btn-gold">See Services</a>
+        <a href="booking.html" class="btn-outline">Get a Quote</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SHOP -->
+<!-- ════ CTA STRIP ════ -->
 
-<section id="shop">
-  <div class="shop-intro">
-    <div class="section-label">The Shop</div>
-    <h2 class="section-title">Gear I <em>Actually</em><br>Use &amp; Trust</h2>
-    <p class="body-text" style="margin-top:20px;">No filler. No paid placements. Every product here has earned its spot in my kit. Whether you're detailing your own car or want to rep the brand — this is the Atlas standard.</p>
+<div class="cta-strip">
+  <div>
+    <div class="cta-strip-hed">Ready to Reset<br><em>Your Vehicle?</em></div>
+    <div class="cta-strip-sub">Serious inquiries only · We come to you · Las Vegas area</div>
   </div>
-  <div class="shop-categories">
-    <button class="shop-cat-btn active" onclick="filterShop('all',this)">All Products</button>
-    <button class="shop-cat-btn" onclick="filterShop('products',this)">Detailing Products</button>
-    <button class="shop-cat-btn" onclick="filterShop('merch',this)">Merch</button>
-    <button class="shop-cat-btn" onclick="filterShop('gift',this)">Gift Cards</button>
+  <div class="cta-btns">
+    <a href="sms:7027633539?&body=Hey%2C%20I%27d%20like%20to%20book%20a%20detail." class="btn-black">Text Us Now</a>
+    <a href="booking.html" class="btn-black">Get a Quote</a>
   </div>
-  <div class="shop-grid" id="shopGrid">
-    <div class="product-card" data-shopcat="products">
-      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#1a1a1a,#0f0f0f);"></div><div class="product-shine"></div><div class="product-badge">My #1 Pick</div><div class="product-icon">✦</div></div>
-      <div class="product-info"><div class="product-category">Paint Care</div><div class="product-name">Iron Decon Spray</div><div class="product-desc">The first step I run on every paint job. Pulls embedded contamination before polish.</div><div class="product-footer"><span class="product-price">$24</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
-    </div>
-    <div class="product-card" data-shopcat="products">
-      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#111,#1c1c1c);"></div><div class="product-shine"></div><div class="product-icon">◎</div></div>
-      <div class="product-info"><div class="product-category">Interior</div><div class="product-name">Leather Conditioner</div><div class="product-desc">Deep conditioning without the greasy residue. Used on every interior restoration.</div><div class="product-footer"><span class="product-price">$32</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
-    </div>
-    <div class="product-card" data-shopcat="products">
-      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#131313,#1e1e1e);"></div><div class="product-shine"></div><div class="product-icon">❋</div></div>
-      <div class="product-info"><div class="product-category">Paint Correction</div><div class="product-name">Dual Action Polisher</div><div class="product-desc">The machine I run for every stage of correction. Beginner-safe, pro results.</div><div class="product-footer"><span class="product-price">$180</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
-    </div>
-    <div class="product-card" data-shopcat="products">
-      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#141414,#1f1f1f);"></div><div class="product-shine"></div><div class="product-icon">◈</div></div>
-      <div class="product-info"><div class="product-category">Protection</div><div class="product-name">Ceramic Spray Coating</div><div class="product-desc">Easy-apply ceramic protection. 6+ months of hydrophobic shine in one step.</div><div class="product-footer"><span class="product-price">$44</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
-    </div>
-    <div class="product-card" data-shopcat="merch">
-      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);"></div><div class="product-shine" style="background:radial-gradient(ellipse at 50% 30%,rgba(201,168,76,0.18) 0%,transparent 60%)"></div><div class="product-badge">New</div><div class="product-icon" style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:rgba(201,168,76,0.4);font-weight:300;opacity:0.3;">A</div></div>
-      <div class="product-info"><div class="product-category">Merch</div><div class="product-name">Atlas Studio Tee</div><div class="product-desc">Heavyweight cotton. Minimal logo. Wears like the standard we hold ourselves to.</div><div class="product-footer"><span class="product-price">$38</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
-    </div>
-    <div class="product-card" data-shopcat="merch">
-      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#111,#181818);"></div><div class="product-shine"></div><div class="product-icon" style="font-size:3.5rem;opacity:0.2;">🧢</div></div>
-      <div class="product-info"><div class="product-category">Merch</div><div class="product-name">Atlas Studio Cap</div><div class="product-desc">Structured snapback. Embroidered logo. Clean enough to wear anywhere.</div><div class="product-footer"><span class="product-price">$34</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
-    </div>
-    <div class="product-card" data-shopcat="merch">
-      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#0f0f0f,#1a1a1a);"></div><div class="product-shine"></div><div class="product-icon" style="font-size:3.5rem;opacity:0.2;">👕</div></div>
-      <div class="product-info"><div class="product-category">Merch</div><div class="product-name">Atlas Hoodie</div><div class="product-desc">Premium fleece. Embroidered chest logo. For those who take the craft seriously.</div><div class="product-footer"><span class="product-price">$62</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
-    </div>
-    <div class="product-card" data-shopcat="gift">
-      <div class="product-img"><div class="product-img-bg" style="background:linear-gradient(135deg,#1c1c1c,#0f0f0f);"></div><div class="product-shine" style="background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,0.2) 0%,transparent 55%)"></div><div class="product-badge">Gift</div><div class="product-icon" style="font-size:3rem;opacity:0.2;">✉</div></div>
-      <div class="product-info"><div class="product-category">Gift Card</div><div class="product-name">Detail Gift Card</div><div class="product-desc">Give someone the gift of a clean car. Redeemable for any Atlas Studio service.</div><div class="product-footer"><span class="product-price">$100+</span><button class="product-btn" onclick="shopLink(this)">Shop →</button></div></div>
-    </div>
-  </div>
-  <div class="shop-note">
-    <p class="shop-note-text"><strong>Full store coming soon:</strong> Affiliate links to every product in the Atlas kit, branded merch, and digital gift cards. Text <strong>702-763-3539</strong> to be first on the list when it goes live.</p>
-    <a href="sms:7027633539?&body=Put%20me%20on%20the%20list%20for%20the%20Atlas%20Studio%20shop%20launch." class="btn-primary" style="white-space:nowrap;">Notify Me →</a>
-  </div>
-</section>
+</div>
 
-<!-- BOOKING -->
-
-<section id="booking">
-  <div class="booking-inner">
-    <div class="booking-info">
-      <div class="section-label">Request A Detail</div>
-      <h2 class="section-title">Reserve Your<br><em>Session</em></h2>
-      <p class="body-text" style="margin-top:24px;">Text or fill out the form and we'll confirm within 24 hours. Serious inquiries only — we book fast.</p>
-      <div class="packages">
-        <div class="package"><div><div class="pkg-name">Interior Refresh</div><div class="pkg-desc">Vacuum · Wipe-down · Glass · Odor Treatment</div></div><div class="pkg-price">$150+</div></div>
-        <div class="package"><div><div class="pkg-name">Interior Restoration</div><div class="pkg-desc">Deep Clean · Leather Condition · Extraction · Carpet</div></div><div class="pkg-price">$250+</div></div>
-        <div class="package"><div><div class="pkg-name">Paint Correction</div><div class="pkg-desc">1-Stage or 2-Stage · Swirl &amp; Scratch Removal</div></div><div class="pkg-price">$350+</div></div>
-        <div class="package"><div><div class="pkg-name">The Atlas Full Detail</div><div class="pkg-desc">Complete Interior + Paint Correction + Protection</div></div><div class="pkg-price">$550+</div></div>
-      </div>
-      <div class="contact-box">
-        <div class="contact-box-label">Text For Faster Response</div>
-        <a href="sms:7027633539" class="contact-box-number">702-763-3539</a>
-      </div>
-    </div>
-    <div class="booking-form">
-      <div class="success-msg" id="successMsg">
-        <div class="success-icon">✦</div>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;margin-bottom:12px;color:var(--white);">Request Received</h3>
-        <p style="font-size:0.7rem;color:var(--text-muted);letter-spacing:0.1em;">We'll be in touch within 24 hours to confirm your detail.</p>
-      </div>
-      <div id="formContent">
-        <div class="form-title">Book Your Detail</div>
-        <div class="form-sub">Serious Inquiries Only · We Come To You</div>
-        <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" placeholder="John" id="firstName"></div>
-          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" id="lastName"></div>
-        </div>
-        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="702-000-0000" id="phone"></div>
-        <div class="form-group"><label>Vehicle (Year, Make, Model)</label><input type="text" placeholder="2022 Mercedes C300" id="vehicle"></div>
-        <div class="form-group">
-          <label>Service Requested</label>
-          <select id="service">
-            <option value="">Select a service...</option>
-            <option>Interior Refresh — $150+</option>
-            <option>Interior Restoration — $250+</option>
-            <option>Paint Correction — $350+</option>
-            <option>The Atlas Full Detail — $550+</option>
-            <option>Not sure — need a quote</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Preferred Date</label><input type="date" id="date"></div>
-        <div class="form-group"><label>Location / Notes</label><textarea placeholder="Your address or anything we should know..." id="notes"></textarea></div>
-        <button class="form-submit" onclick="submitForm()">Submit Request →</button>
-        <p class="form-note">By submitting you agree to be contacted at the number provided.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
+<!-- ════ FOOTER ════ -->
 
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-brand-name">Atlas <span>Studio</span> Detailing</div>
-      <p class="footer-tagline">Mobile interior restoration and paint correction serving the Las Vegas valley. Studio quality, wherever you are.</p>
-      <a href="tel:7027633539" class="footer-contact-item"><div class="footer-contact-icon">✆</div>702-763-3539</a>
-      <a href="https://www.instagram.com/AtlasStudioDetailing" target="_blank" class="footer-contact-item"><div class="footer-contact-icon">◈</div>@AtlasStudioDetailing</a>
-      <div class="footer-contact-item"><div class="footer-contact-icon">◎</div>Las Vegas, Nevada</div>
+      <div class="footer-brand">Atlas <span>Studio</span> Detailing</div>
+      <p class="footer-tag">Mobile paint correction and interior restoration. Las Vegas, Henderson, Summerlin, and surrounding areas.</p>
+      <a href="tel:7027633539" class="footer-row"><div class="f-ico">✆</div>702-763-3539</a>
+      <a href="https://instagram.com/AtlasStudioDetailing" target="_blank" class="footer-row"><div class="f-ico">◈</div>@AtlasStudioDetailing</a>
+      <div class="footer-row"><div class="f-ico">◎</div>Las Vegas, Nevada</div>
     </div>
     <div>
-      <div class="footer-col-title">Services</div>
-      <ul class="footer-links">
-        <li><a href="#booking">Interior Refresh</a></li>
-        <li><a href="#booking">Interior Restoration</a></li>
-        <li><a href="#booking">Paint Correction</a></li>
-        <li><a href="#booking">Full Detail Package</a></li>
+      <div class="footer-head">Services</div>
+      <ul class="footer-list">
+        <li><a href="services.html">Paint Correction Reset</a></li>
+        <li><a href="services.html">Interior Reset</a></li>
+        <li><a href="services.html">Full Reset</a></li>
+        <li><a href="services.html">Vegas Sun Bundle</a></li>
+        <li><a href="services.html">Maintenance Plans</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Explore</div>
-      <ul class="footer-links">
-        <li><a href="#story">Our Story</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#content">YouTube</a></li>
-        <li><a href="#shop">Shop</a></li>
+      <div class="footer-head">Explore</div>
+      <ul class="footer-list">
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="shop.html">Gear &amp; Shop</a></li>
+        <li><a href="content.html">YouTube</a></li>
+        <li><a href="content.html">Instagram</a></li>
+        <li><a href="content.html">TikTok</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Connect</div>
-      <ul class="footer-links">
-        <li><a href="https://www.instagram.com/AtlasStudioDetailing" target="_blank">Instagram</a></li>
-        <li><a href="https://youtube.com/@AtlasStudioDetailing" target="_blank">YouTube</a></li>
+      <div class="footer-head">Connect</div>
+      <ul class="footer-list">
         <li><a href="sms:7027633539">Text Us</a></li>
-        <li><a href="#booking">Book A Detail</a></li>
+        <li><a href="tel:7027633539">Call Us</a></li>
+        <li><a href="booking.html">Book a Reset</a></li>
+        <li><a href="https://instagram.com/AtlasStudioDetailing" target="_blank">Instagram</a></li>
+        <li><a href="https://youtube.com/@AtlasStudioDetailing" target="_blank">YouTube</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2025 Atlas Studio Detailing · Las Vegas, NV · All Rights Reserved</div>
-    <a href="tel:7027633539" class="footer-phone">702-763-3539</a>
+    <div class="footer-copy">© 2025 Atlas Studio Detailing · Las Vegas, NV</div>
+    <a href="tel:7027633539" class="footer-tel">702-763-3539</a>
   </div>
 </footer>
 
 <script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{ mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
-  (function animateRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animateRing); })();
-  document.querySelectorAll('a,button,.gallery-item,.package,.product-card,.video-card').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{ cursor.style.transform='translate(-50%,-50%) scale(2)'; ring.style.transform='translate(-50%,-50%) scale(1.5)'; ring.style.opacity='1'; });
-    el.addEventListener('mouseleave',()=>{ cursor.style.transform='translate(-50%,-50%) scale(1)'; ring.style.transform='translate(-50%,-50%) scale(1)'; ring.style.opacity='0.6'; });
-  });
-
-  // Scroll reveal
-  const observer = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } }); },{ threshold:0.08 });
-  document.querySelectorAll('.story-grid,.gallery-item,.package,.booking-form,.product-card,.video-card,.content-philosophy,.shop-note').forEach(el=>{
-    el.style.opacity='0'; el.style.transform='translateY(40px)'; el.style.transition='opacity 0.8s ease,transform 0.8s ease'; observer.observe(el);
-  });
-
-  // Gallery filter
-  function filterGallery(cat,btn){
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
-    document.querySelectorAll('.gallery-item').forEach(item=>{
-      if(cat==='all'||item.dataset.cat===cat){ item.style.display=''; setTimeout(()=>item.style.opacity='1',10); }
-      else{ item.style.opacity='0'; setTimeout(()=>item.style.display='none',300); }
-    });
-  }
-
-  // Shop filter
-  function filterShop(cat,btn){
-    document.querySelectorAll('.shop-cat-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
-    document.querySelectorAll('.product-card').forEach(card=>{
-      if(cat==='all'||card.dataset.shopcat===cat){ card.style.display=''; setTimeout(()=>{ card.style.opacity='1'; card.style.transform='translateY(0)'; },10); }
-      else{ card.style.opacity='0'; card.style.transform='translateY(20px)'; setTimeout(()=>card.style.display='none',300); }
-    });
-  }
-
-  // Shop button — texts you about the product
-  function shopLink(btn){
-    const name = btn.closest('.product-card').querySelector('.product-name').textContent;
-    window.location.href='sms:7027633539?&body=Hey%2C%20I%27m%20interested%20in%20the%20'+encodeURIComponent(name);
-  }
-
-  // Form submit
-  function submitForm(){
-    const required=['firstName','phone','vehicle','service']; let valid=true;
-    required.forEach(id=>{ const el=document.getElementById(id); if(!el.value.trim()){ el.style.borderColor='rgba(201,168,76,0.8)'; valid=false; } else{ el.style.borderColor='rgba(255,255,255,0.1)'; } });
-    if(!valid) return;
-    document.getElementById('formContent').style.display='none';
-    document.getElementById('successMsg').classList.add('show');
-  }
-
-  // Nav scroll
-  const nav=document.getElementById('mainNav');
-  window.addEventListener('scroll',()=>{
-    if(window.scrollY>80){ nav.style.background='rgba(8,8,8,0.97)'; nav.style.borderBottom='1px solid rgba(255,255,255,0.05)'; }
-    else{ nav.style.background='linear-gradient(to bottom,rgba(8,8,8,0.95),transparent)'; nav.style.borderBottom='none'; }
-  });
+const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button,.nc-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='translate(-50%,-50%) scale(2.4)';ring.style.opacity='.9'});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';ring.style.opacity='.45'});
+});
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+// Reveal on scroll — cards animate in, everything else visible
+// Reveal: mark body ready so CSS can hide elements, then animate in
+document.body.classList.add('js-ready');
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target)}}),{rootMargin:'0px 0px -40px 0px',threshold:.06});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 
 </body>

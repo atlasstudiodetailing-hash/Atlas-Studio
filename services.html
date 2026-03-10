@@ -2,8 +2,8 @@
 
 <html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services & Pricing | Atlas Studio Detailing</title><meta name="description" content="Paint Correction Reset from $499, Interior Reset from $249, Full Reset from $699. Maintenance plans from $149. Las Vegas mobile detailing.">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Services & Pricing | Atlas Studio Detailing</title><meta name="description" content="Four levels of mobile detailing in Las Vegas. Refresh $249, Enhancement $449+, Paint Correction $899+, Ceramic Coating $999+.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>/* ═══════════════════════════════════════════════════
    ATLAS STUDIO — GLOBAL DESIGN SYSTEM v3.0
@@ -408,171 +408,226 @@ nav{padding:16px 5vw}
 @media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
 
 .svc-body{padding:64px 5vw 100px}
-.svc-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2px;margin-bottom:2px}
-.svc-card{background:var(–charcoal);padding:36px 32px;position:relative;overflow:hidden;transition:background .3s}
-.svc-card:hover{background:var(–surface)}
-.svc-card.feat{background:var(–surface);border:1px solid var(–border-gold)}
-.feat-inner{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
-.sn{font-family:“Cormorant Garamond”,serif;font-size:3.5rem;font-weight:300;color:rgba(200,169,110,.1);line-height:1;margin-bottom:12px}
-.sname{font-family:“Cormorant Garamond”,serif;font-size:1.35rem;font-weight:300;color:var(–white);margin-bottom:10px}
-.svc-card.feat .sname{color:var(–gold);font-size:1.6rem}
-.sdesc{font-size:.67rem;color:var(–copy);line-height:1.9;margin-bottom:14px;font-weight:300}
-.sprice{font-family:“Cormorant Garamond”,serif;font-size:1.8rem;font-weight:300;color:var(–gold);margin-bottom:6px}
-.stier{font-size:.56rem;color:var(–muted);margin-bottom:16px;line-height:1.7}
-.stags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
-.stag{font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:var(–muted);background:rgba(255,255,255,.04);border:1px solid var(–border);padding:4px 10px}
 
-/* Vegas Sun Timeline */
-.sun-section{padding:64px 5vw;background:var(–charcoal);position:relative;overflow:hidden}
-.sun-section::before{content:””;position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(200,169,110,.07) 0%,transparent 65%)}
-.sun-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:36px;position:relative}
-.sun-timeline::before{content:””;position:absolute;top:28px;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(–border-gold),transparent);z-index:0}
-.st-point{background:var(–surface);padding:28px 22px;position:relative;transition:background .25s,transform .25s}
-.st-point:hover{background:#222;transform:translateY(-3px)}
-.st-dot{width:10px;height:10px;border-radius:50%;background:var(–gold);margin-bottom:16px;position:relative;z-index:1;box-shadow:0 0 0 4px rgba(200,169,110,.18)}
-.st-n{font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(–gold);margin-bottom:8px}
-.st-l{font-size:.65rem;color:var(–copy);line-height:1.75}
-.st-damage{font-size:.58rem;color:rgba(200,100,100,.8);margin-top:6px;font-style:italic}
+/* Level ladder */
+.ladder{display:flex;flex-direction:column;gap:2px;margin-bottom:48px}
+.level{display:grid;grid-template-columns:80px 1fr auto;gap:0;position:relative;overflow:hidden;transition:transform .25s}
+.level:hover{transform:translateX(4px)}
+.level-num{background:var(–charcoal);display:flex;align-items:center;justify-content:center;padding:32px 20px;position:relative}
+.level-num::after{content:’’;position:absolute;right:0;top:20%;bottom:20%;width:1px;background:var(–border-gold)}
+.ln-txt{font-family:‘Cormorant Garamond’,serif;font-size:2rem;font-weight:300;color:rgba(200,169,110,.25);line-height:1}
+.level.featured .ln-txt{color:rgba(200,169,110,.55)}
+.level-body{background:var(–charcoal);padding:28px 32px;border-top:1px solid var(–border);border-bottom:1px solid var(–border)}
+.level.featured .level-body{background:var(–surface);border-color:var(–border-gold)}
+.lv-eye{font-size:.48rem;letter-spacing:.28em;text-transform:uppercase;color:var(–gold);margin-bottom:8px}
+.lv-name{font-family:‘Cormorant Garamond’,serif;font-size:1.45rem;font-weight:300;color:var(–white);margin-bottom:8px}
+.level.featured .lv-name{font-size:1.65rem}
+.lv-desc{font-size:.65rem;color:var(–copy);line-height:1.9;margin-bottom:14px;max-width:540px}
+.lv-tags{display:flex;flex-wrap:wrap;gap:6px}
+.lv-tag{font-size:.47rem;letter-spacing:.12em;text-transform:uppercase;color:var(–muted);background:rgba(255,255,255,.04);border:1px solid var(–border);padding:4px 10px}
+.level.featured .lv-tag{border-color:rgba(200,169,110,.2);color:var(–gold)}
+.level-price{background:var(–charcoal);display:flex;flex-direction:column;align-items:flex-end;justify-content:center;padding:28px 32px;border-top:1px solid var(–border);border-bottom:1px solid var(–border);white-space:nowrap}
+.level.featured .level-price{background:var(–surface);border-color:var(–border-gold)}
+.lp-num{font-family:‘Cormorant Garamond’,serif;font-size:2rem;color:var(–gold);line-height:1;margin-bottom:4px}
+.level.featured .lp-num{font-size:2.4rem}
+.lp-note{font-size:.49rem;color:var(–muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.best-val{font-size:.47rem;letter-spacing:.16em;text-transform:uppercase;color:#000;background:var(–gold);padding:4px 10px;margin-bottom:12px;display:inline-block}
 
 /* Maintenance */
-.maint{background:var(–charcoal);padding:48px 42px;border-left:3px solid var(–gold);margin-bottom:2px}
-.maint-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.maint-section{background:var(–charcoal);border-left:3px solid var(–gold);padding:40px 42px;margin-bottom:2px}
+.maint-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
 .maint-plan{background:var(–glass-bg);border:1px solid var(–glass-border);padding:22px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:2px;transition:border-color .25s,transform .25s}
 .maint-plan:hover{border-color:var(–border-gold);transform:translateY(-2px)}
 .maint-plan.hi{background:rgba(200,169,110,.05);border-color:rgba(200,169,110,.2)}
-.mp-name{font-family:“Cormorant Garamond”,serif;font-size:1.05rem;color:var(–white);margin-bottom:6px}
+.mp-name{font-family:‘Cormorant Garamond’,serif;font-size:1.05rem;color:var(–white);margin-bottom:6px}
 .maint-plan.hi .mp-name{color:var(–gold)}
 .mp-desc{font-size:.61rem;color:var(–muted);line-height:1.75}
-.mp-price{font-family:“Cormorant Garamond”,serif;font-size:1.7rem;color:var(–gold);white-space:nowrap}
+.mp-price{font-family:‘Cormorant Garamond’,serif;font-size:1.7rem;color:var(–gold);white-space:nowrap}
 .mp-per{font-size:.7rem;color:var(–muted)}
 .freq{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
 .freq span{font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(–muted);border:1px solid var(–border);padding:5px 12px}
 .maint-note{font-size:.56rem;color:var(–muted);margin-top:12px;line-height:1.7}
-.mem{background:var(–glass-bg);border:1px solid var(–glass-border);padding:16px 18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;transition:border-color .25s}
-.mem:hover{border-color:var(–border-gold)}
-.mem.hi{background:rgba(200,169,110,.05);border-color:rgba(200,169,110,.18)}
-.mem-name{font-size:.66rem;color:var(–white);margin-bottom:3px}
-.mem-sub{font-size:.54rem;color:var(–muted)}
-.mem-p{font-family:“Cormorant Garamond”,serif;font-size:1.3rem;color:var(–gold)}
-.upgrades{background:var(–surface);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:2px}
-.upg-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
-.upg-tag{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(–gold);border:1px solid var(–border-gold);padding:5px 13px;transition:background .2s}
-.upg-tag:hover{background:var(–gold-dim)}
+
+/* Vegas Sun */
+.sun-section{padding:64px 5vw;background:var(–charcoal);position:relative;overflow:hidden}
+.sun-section::before{content:’’;position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(200,169,110,.07) 0%,transparent 65%)}
+.sun-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:36px}
+.st-point{background:var(–surface);padding:28px 22px;transition:background .25s,transform .25s}
+.st-point:hover{background:#222;transform:translateY(-3px)}
+.st-dot{width:10px;height:10px;border-radius:50%;background:var(–gold);margin-bottom:16px;box-shadow:0 0 0 4px rgba(200,169,110,.18)}
+.st-n{font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(–gold);margin-bottom:8px}
+.st-l{font-size:.65rem;color:var(–copy);line-height:1.75}
+.st-damage{font-size:.58rem;color:rgba(200,100,100,.8);margin-top:6px;font-style:italic}
+
+/* Steps */
 .steps-sec{padding:64px 5vw;background:var(–black)}
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:36px}
 .step{background:var(–charcoal);padding:28px 24px;transition:background .25s,transform .25s}
 .step:hover{background:var(–surface);transform:translateY(-3px)}
-.step-n{font-family:“Cormorant Garamond”,serif;font-size:2.5rem;color:rgba(200,169,110,.15);margin-bottom:14px}
+.step-n{font-family:‘Cormorant Garamond’,serif;font-size:2.5rem;color:rgba(200,169,110,.15);margin-bottom:14px}
 .step-name{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(–gold);margin-bottom:8px}
 .step-desc{font-size:.65rem;color:var(–copy);line-height:1.8}
-@media(max-width:900px){.svc-grid{grid-template-columns:1fr}.feat-inner{grid-template-columns:1fr}.sun-timeline{grid-template-columns:1fr 1fr}.maint-grid{grid-template-columns:1fr;gap:28px}.steps-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:500px){.sun-timeline{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr}}
+
+.upgrades{background:var(–surface);padding:24px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:2px}
+.upg-tags{display:flex;flex-wrap:wrap;gap:7px}
+.upg-tag{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(–gold);border:1px solid var(–border-gold);padding:5px 13px;transition:background .2s}
+.upg-tag:hover{background:var(–gold-dim)}
+
+@media(max-width:900px){
+.level{grid-template-columns:60px 1fr}
+.level-price{grid-column:1/-1;border-top:none;flex-direction:row;align-items:center;justify-content:space-between;padding:16px 24px}
+.maint-grid{grid-template-columns:1fr;gap:24px}
+.sun-timeline{grid-template-columns:1fr 1fr}
+.steps-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+.level{grid-template-columns:1fr}
+.level-num{display:none}
+.sun-timeline{grid-template-columns:1fr}
+.steps-grid{grid-template-columns:1fr}
+}
 </style>
 
 </head>
 <body>
 <div class="cursor" id="cur"></div><div class="cursor-ring" id="curRing"></div>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" onclick="toggleMobileMenu()">Home</a>
-  <a href="services.html" onclick="toggleMobileMenu()">Services</a>
-  <a href="gallery.html" onclick="toggleMobileMenu()">Gallery</a>
-  <a href="shop.html" onclick="toggleMobileMenu()">Shop</a>
-  <a href="content.html" onclick="toggleMobileMenu()">Content</a>
-  <a href="blog.html" onclick="toggleMobileMenu()">Journal</a>
-  <a href="booking.html" onclick="toggleMobileMenu()">Contact</a>
-</div>
-<nav id="nav">
-  <a href="index.html" class="nav-logo">Atlas <span>Studio</span></a>
-  <ul class="nav-links"><li><a href="services.html" class="active">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="shop.html">Shop</a></li><li><a href="content.html">Content</a></li><li><a href="blog.html">Journal</a></li><li><a href="booking.html">Contact</a></li></ul>
-  <div class="nav-right">
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">☀</button>
-    <a href="booking.html" class="nav-cta">Book a Reset</a>
-    <div class="nav-hamburger" id="navBurger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
-  </div>
-</nav>
+<div class="mobile-menu" id="mobileMenu"><a href="index.html" onclick="toggleMobileMenu()">Home</a><a href="services.html" onclick="toggleMobileMenu()">Services</a><a href="gallery.html" onclick="toggleMobileMenu()">Gallery</a><a href="shop.html" onclick="toggleMobileMenu()">Shop</a><a href="content.html" onclick="toggleMobileMenu()">Content</a><a href="blog.html" onclick="toggleMobileMenu()">Journal</a><a href="booking.html" onclick="toggleMobileMenu()">Contact</a></div>
+<nav id="nav"><a href="index.html" class="nav-logo">Atlas <span>Studio</span></a><ul class="nav-links"><li><a href="services.html" class="active">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="shop.html">Shop</a></li><li><a href="content.html">Content</a></li><li><a href="blog.html">Journal</a></li><li><a href="booking.html">Contact</a></li></ul><div class="nav-right"><button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">☀</button><a href="booking.html" class="nav-cta">Book a Reset</a><div class="nav-hamburger" id="navBurger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div></div></nav>
 
 <div class="page-hero">
-  <div class="ph-eyebrow">Pricing &amp; Services</div>
-  <h1 class="ph-title">The <em>Reset</em><br>Experience</h1>
-  <p class="ph-sub">Clear pricing. No surprises. No car wash menus. Every service starts with full restoration, then we protect it and keep it that way.</p>
+  <div class="ph-eyebrow">Services &amp; Pricing</div>
+  <h1 class="ph-title">Four Levels of <em>Clean</em></h1>
+  <p class="ph-sub">Start where your vehicle is. Work up to where you want it. Every level is a complete service — not a menu of add-ons.</p>
   <div class="ph-letter">S</div>
 </div>
 
 <div class="svc-body">
-  <div style="font-size:.5rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:14px">Step 1 — Choose Your Reset</div>
-  <div class="svc-grid">
-    <div class="svc-card feat reveal">
-      <div class="feat-inner">
-        <div>
-          <div class="sn">01</div>
-          <div class="sname">The Atlas Full Reset</div>
-          <div class="sdesc">Paint Correction + Interior Reset in one session. Our most complete service — for the client who wants it done right, once.</div>
-          <div class="sprice">Starting at $699</div>
-          <div class="stier">Sedan &amp; Mid-Size SUV $699 · Full-Size SUV &amp; Truck $899 · Exotic: Quote</div>
-          <div style="margin-top:20px"><a href="booking.html" class="btn-gold">Book the Full Reset</a></div>
-        </div>
-        <div>
-          <div class="stags">
-            <span class="stag">Paint Correction</span><span class="stag">Swirl Removal</span>
-            <span class="stag">Interior Deep Clean</span><span class="stag">Leather Conditioning</span>
-            <span class="stag">Sealant Protection</span><span class="stag">Before &amp; After Docs</span>
-            <span class="stag">Final Walk-Through</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="svc-card reveal">
-      <div class="sn">02</div>
-      <div class="sname">Paint Correction Reset</div>
-      <div class="sdesc">We remove swirls, scratches, and Vegas sun oxidation then lock in the gloss with professional protection. Built for anyone who cares about resale value.</div>
-      <div class="sprice">Starting at $499</div>
-      <div class="stier">Sedan &amp; Mid-Size SUV $499 · Full-Size SUV &amp; Truck $699 · Exotic: Quote</div>
-      <div class="stags"><span class="stag">1 or 2-Stage Correction</span><span class="stag">Swirl Removal</span><span class="stag">Sealant Protection</span><span class="stag">Vegas Sun Damage</span></div>
-      <div style="margin-top:20px"><a href="booking.html" class="btn-ghost">Request a Quote</a></div>
-    </div>
-    <div class="svc-card reveal">
-      <div class="sn">03</div>
-      <div class="sname">Interior Reset</div>
-      <div class="sdesc">Day-one condition as close as possible. Deep extraction, stain removal, leather conditioning, and tight-area detailing. Ideal for families, rideshares, and vehicles needing a true fresh start.</div>
-      <div class="sprice">Starting at $249</div>
-      <div class="stier">Sedan &amp; Mid-Size SUV $249 · Full-Size SUV &amp; Truck $349 · Heavily soiled: additional fee</div>
-      <div class="stags"><span class="stag">Deep Extraction</span><span class="stag">Stain Removal</span><span class="stag">Leather Care</span><span class="stag">Odor Elimination</span></div>
-      <div style="margin-top:20px"><a href="booking.html" class="btn-ghost">Request a Quote</a></div>
+  <div class="label reveal">The Service Ladder</div>
+  <h2 class="title reveal" style="margin-bottom:32px">Choose Your <em>Level</em></h2>
+
+  <div class="ladder">
+
+```
+<!-- LEVEL 1 -->
+<div class="level reveal">
+  <div class="level-num"><div class="ln-txt">01</div></div>
+  <div class="level-body">
+    <div class="lv-eye">Level 1 — Entry</div>
+    <div class="lv-name">The Refresh</div>
+    <div class="lv-desc">Interior and exterior brought back to a clean baseline. Ideal for clients who maintain well and just need a thorough reset between seasons or before a special occasion.</div>
+    <div class="lv-tags">
+      <span class="lv-tag">Exterior Hand Wash</span>
+      <span class="lv-tag">Interior Vacuum</span>
+      <span class="lv-tag">Wipe-Down</span>
+      <span class="lv-tag">Glass Cleaning</span>
+      <span class="lv-tag">Tire Dressing</span>
     </div>
   </div>
+  <div class="level-price">
+    <div class="lp-num">$249</div>
+    <div class="lp-note">Flat rate</div>
+    <a href="booking.html" class="btn-ghost" style="font-size:.5rem;padding:8px 16px">Book →</a>
+  </div>
+</div>
 
-  <div style="font-size:.5rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin:32px 0 14px">Step 2 — Maintain It</div>
-  <div class="maint reveal">
+<!-- LEVEL 2 -->
+<div class="level reveal">
+  <div class="level-num"><div class="ln-txt">02</div></div>
+  <div class="level-body">
+    <div class="lv-eye">Level 2 — Enhancement</div>
+    <div class="lv-name">The Enhancement Detail</div>
+    <div class="lv-desc">A step above a wash. Clay bar decontamination removes bonded surface contaminants, a single-stage polish removes light swirls and restores gloss, interior is fully reset, and paint protection sealant locks it in.</div>
+    <div class="lv-tags">
+      <span class="lv-tag">Clay Bar Decontamination</span>
+      <span class="lv-tag">1-Step Polish</span>
+      <span class="lv-tag">Full Interior Reset</span>
+      <span class="lv-tag">Paint Sealant</span>
+      <span class="lv-tag">Glass &amp; Trim</span>
+    </div>
+  </div>
+  <div class="level-price">
+    <div class="lp-num">$449<span style="font-size:1rem">+</span></div>
+    <div class="lp-note">Based on vehicle size</div>
+    <a href="booking.html" class="btn-ghost" style="font-size:.5rem;padding:8px 16px">Book →</a>
+  </div>
+</div>
+
+<!-- LEVEL 3 -->
+<div class="level featured reveal">
+  <div class="level-num"><div class="ln-txt">03</div></div>
+  <div class="level-body">
+    <div class="lv-eye">Level 3 — Correction</div>
+    <div class="lv-name">2-Step Paint Correction + Interior</div>
+    <div class="lv-desc">Our most thorough paint service. Full decontamination, two-stage machine correction removes deep swirls, scratches, and Vegas sun oxidation down to the clear coat. Interior fully reset. Protection applied. Before and after documentation included.</div>
+    <div class="lv-tags">
+      <span class="lv-tag">Full Decontamination</span>
+      <span class="lv-tag">2-Stage Machine Correction</span>
+      <span class="lv-tag">Swirl &amp; Scratch Removal</span>
+      <span class="lv-tag">Full Interior Reset</span>
+      <span class="lv-tag">Sealant Protection</span>
+      <span class="lv-tag">Before &amp; After Docs</span>
+    </div>
+  </div>
+  <div class="level-price">
+    <div class="best-val">Most Popular</div>
+    <div class="lp-num">$899<span style="font-size:1rem">+</span></div>
+    <div class="lp-note">Based on vehicle size &amp; condition</div>
+    <a href="booking.html" class="btn-gold" style="font-size:.5rem;padding:10px 18px">Book →</a>
+  </div>
+</div>
+
+<!-- LEVEL 4 -->
+<div class="level reveal">
+  <div class="level-num"><div class="ln-txt">04</div></div>
+  <div class="level-body">
+    <div class="lv-eye">Level 4 — Ceramic</div>
+    <div class="lv-name">Paint Correction + Ceramic Coating</div>
+    <div class="lv-desc">Everything in Level 3, plus a professional-grade ceramic coating applied to the corrected paint. Hydrophobic protection, enhanced gloss, and a surface that holds up to Vegas heat and UV for years. This is the last detail your paint needs for a long time.</div>
+    <div class="lv-tags">
+      <span class="lv-tag">Full 2-Step Correction</span>
+      <span class="lv-tag">Professional Ceramic Coating</span>
+      <span class="lv-tag">UV &amp; Heat Protection</span>
+      <span class="lv-tag">Hydrophobic Barrier</span>
+      <span class="lv-tag">Full Interior Reset</span>
+      <span class="lv-tag">Multi-Year Protection</span>
+    </div>
+  </div>
+  <div class="level-price">
+    <div class="lp-num">$999<span style="font-size:1rem">+</span></div>
+    <div class="lp-note">Quote required · Vehicle inspection first</div>
+    <a href="booking.html" class="btn-ghost" style="font-size:.5rem;padding:8px 16px">Get a Quote →</a>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- MAINTENANCE -->
+
+  <div style="font-size:.5rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin:0 0 14px">Maintenance — Keep It That Way</div>
+  <div class="maint-section reveal">
     <div class="maint-grid">
       <div>
         <div class="label">Maintenance Program</div>
-        <p class="copy" style="margin-bottom:18px">After your Reset, we keep your vehicle dialed in on your schedule. Pick the plan that fits how you use your car.</p>
-        <p class="copy" style="margin-bottom:18px;font-style:italic;color:var(--muted)">Only available after completing a Paint Correction or Full Reset. 3-visit minimum.</p>
-        <div class="maint-plan reveal">
-          <div class="mp-left">
-            <div class="mp-name">Exterior Maintenance</div>
-            <div class="mp-desc">Maintenance wash, decontamination, protection top-up, paint inspection. Keeps your correction locked in.</div>
-            <div class="stags" style="margin-top:10px"><span class="stag">Maintenance Wash</span><span class="stag">Decontamination</span><span class="stag">Protection Top-Up</span><span class="stag">Paint Inspection</span></div>
-          </div>
+        <p class="copy" style="margin-bottom:18px">After any service, we can keep your vehicle dialed in on a regular schedule. Same detailer, same standard, every visit.</p>
+        <p class="copy" style="font-style:italic;color:var(--muted);margin-bottom:20px">Available after completing any Level 2, 3, or 4 service. 3-visit minimum to start.</p>
+        <div class="maint-plan">
+          <div><div class="mp-name">Exterior Maintenance</div><div class="mp-desc">Maintenance wash · Decontamination · Protection top-up · Paint inspection</div></div>
           <div class="mp-price">$149<span class="mp-per">/visit</span></div>
         </div>
-        <div class="maint-plan hi reveal">
-          <div class="mp-left">
-            <div class="mp-name">Exterior + Interior Maintenance</div>
-            <div class="mp-desc">Everything in Exterior, plus interior wipe-down, leather conditioning, and glass. Full reset feel every visit.</div>
-            <div class="stags" style="margin-top:10px"><span class="stag">Everything Above</span><span class="stag">Interior Wipe-Down</span><span class="stag">Leather Conditioning</span><span class="stag">Glass Treatment</span></div>
-          </div>
+        <div class="maint-plan hi">
+          <div><div class="mp-name">Exterior + Interior Maintenance</div><div class="mp-desc">Everything above + Interior wipe-down · Leather conditioning · Glass</div></div>
           <div class="mp-price">$249<span class="mp-per">/visit</span></div>
         </div>
         <div class="freq"><span>Weekly</span><span>Bi-Weekly</span><span>Monthly</span></div>
-        <div class="maint-note">3-visit minimum · Cancel anytime after · <strong>Limited spots available</strong></div>
+        <div class="maint-note">3-visit minimum · No contracts · Cancel anytime · <strong>Limited spots</strong></div>
       </div>
       <div>
-        <div style="font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">How to Get Started</div>
-        <p class="copy" style="margin-bottom:22px">Text us after your Reset and we will set up your schedule. No contracts, no commitment — just show up on your preferred cadence and we handle the rest.</p>
-        <div style="background:var(--glass-bg);border:1px solid var(--border-gold);padding:18px 20px;margin-bottom:16px">
+        <div style="font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">How It Works</div>
+        <p class="copy" style="margin-bottom:18px">Text us after your service and we set up your schedule. No contracts, no commitment — just show up on your preferred cadence and we handle the rest.</p>
+        <div style="background:var(--glass-bg);border:1px solid var(--border-gold);padding:18px 20px;margin-bottom:20px">
           <div style="font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Priority Scheduling</div>
-          <p style="font-size:.64rem;color:var(--copy);line-height:1.8">Maintenance clients get first pick on scheduling. Your regular slot is yours — no competing with new bookings.</p>
+          <p style="font-size:.63rem;color:var(--copy);line-height:1.85">Maintenance clients get first pick on scheduling. Your regular slot is yours — no competing with new bookings.</p>
         </div>
         <a href="booking.html" class="btn-gold">Reserve a Spot →</a>
       </div>
@@ -581,61 +636,43 @@ nav{padding:16px 5vw}
 
   <div class="upgrades reveal">
     <div>
-      <div style="font-size:.49rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Premium Add-Ons — Available After Inspection</div>
-      <div class="upg-tags"><span class="upg-tag">Ceramic Coating</span><span class="upg-tag">Engine Bay</span><span class="upg-tag">Wheel Deep Clean</span><span class="upg-tag">Headlight Restoration</span><span class="upg-tag">Ozone Treatment</span></div>
+      <div style="font-size:.49rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Add-Ons — Available After Inspection</div>
+      <div class="upg-tags"><span class="upg-tag">Engine Bay</span><span class="upg-tag">Wheel Deep Clean</span><span class="upg-tag">Headlight Restoration</span><span class="upg-tag">Ozone Treatment</span><span class="upg-tag">Convertible Top</span></div>
     </div>
-    <div style="font-family:'Cormorant Garamond',serif;font-size:.9rem;font-style:italic;color:var(--muted)">Priced individually based on your vehicle.</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:.9rem;font-style:italic;color:var(--muted)">Priced individually.</div>
   </div>
 </div>
 
-<!-- Vegas Sun Damage Timeline -->
+<!-- Vegas Sun Timeline -->
 
 <div class="sun-section">
   <div class="label reveal">Vegas Sun Reality</div>
   <h2 class="title reveal" style="margin-bottom:10px">What Vegas Heat <em>Does</em> to Your Paint</h2>
-  <p class="copy reveal" style="max-width:560px">UV intensity in Las Vegas is significantly higher than most US cities. Here is what actually happens to unprotected paint over time.</p>
+  <p class="copy reveal" style="max-width:560px">UV intensity in Las Vegas is among the highest in the US. Here is what actually happens to unprotected paint over time.</p>
   <div class="sun-timeline">
     <div class="st-point reveal"><div class="st-dot"></div><div class="st-n">Week 1–4</div><div class="st-l">Clear coat oxidation begins. UV rays break down the protective layer invisibly.</div><div class="st-damage">Invisible — but happening</div></div>
     <div class="st-point reveal delay-1"><div class="st-dot"></div><div class="st-n">Month 3</div><div class="st-l">First swirl marks appear after wash contact. Gloss starts to flatten in direct sun.</div><div class="st-damage">Visible in bright light</div></div>
     <div class="st-point reveal delay-2"><div class="st-dot"></div><div class="st-n">Year 1</div><div class="st-l">Paint oxidation visible to the naked eye. Deep scratches. Color fading begins.</div><div class="st-damage">Obvious to buyers</div></div>
-    <div class="st-point reveal delay-3"><div class="st-dot"></div><div class="st-n">Year 2–3</div><div class="st-l">$3,000–$8,000 in resale value lost. Professional correction or full repaint required.</div><div class="st-damage">Costly to reverse</div></div>
+    <div class="st-point reveal delay-3"><div class="st-dot"></div><div class="st-n">Year 2–3</div><div class="st-l">$3,000–$8,000 in resale value lost. Professional correction required.</div><div class="st-damage">Costly to reverse</div></div>
   </div>
   <div style="margin-top:32px;text-align:center">
-    <p class="copy" style="margin-bottom:18px">A paint correction now costs a fraction of what oxidation damage costs later.</p>
+    <p class="copy" style="margin-bottom:18px">A correction now costs a fraction of what oxidation damage costs later.</p>
     <a href="booking.html" class="btn-gold">Protect Your Paint →</a>
   </div>
 </div>
 
 <section class="steps-sec">
   <div class="label reveal">How It Works</div>
-  <h2 class="title reveal" style="margin-bottom:4px">Four Steps to <em>Perfect</em></h2>
+  <h2 class="title reveal" style="margin-bottom:32px">Simple <em>Process</em></h2>
   <div class="steps-grid">
-    <div class="step reveal"><div class="step-n">01</div><div class="step-name">Consult &amp; Quote</div><div class="step-desc">Text us photos of your vehicle. We discuss your goals and send a clear, honest quote. No pressure.</div></div>
-    <div class="step reveal delay-1"><div class="step-n">02</div><div class="step-name">The Reset</div><div class="step-desc">We come to you and perform your Reset. Before and after documentation and a final walk-through.</div></div>
-    <div class="step reveal delay-2"><div class="step-n">03</div><div class="step-name">Protect &amp; Maintain</div><div class="step-desc">We add protection as needed, then set up your maintenance schedule. Same detailer, every time.</div></div>
-    <div class="step reveal delay-3"><div class="step-n">04</div><div class="step-name">Relax</div><div class="step-desc">Your car stays ready. No more wash stress. No more guessing who to call.</div></div>
+    <div class="step reveal"><div class="step-n">01</div><div class="step-name">Text Us Photos</div><div class="step-desc">Send photos of your vehicle. We assess the condition, recommend the right level, and send a clear quote.</div></div>
+    <div class="step reveal delay-1"><div class="step-n">02</div><div class="step-name">Confirm &amp; Schedule</div><div class="step-desc">We agree on the service and price before anything starts. No surprises, ever.</div></div>
+    <div class="step reveal delay-2"><div class="step-n">03</div><div class="step-name">We Come to You</div><div class="step-desc">We show up at your location and get to work. Before and after photos documented.</div></div>
+    <div class="step reveal delay-3"><div class="step-n">04</div><div class="step-name">Walk-Through &amp; Pay</div><div class="step-desc">You inspect the finished vehicle with us. Pay after you are satisfied. Simple.</div></div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-brand">Atlas <span>Studio</span> Detailing</div>
-      <p class="footer-tag">Mobile paint correction and interior restoration. Las Vegas, Henderson, Summerlin, and surrounding areas.</p>
-      <div class="footer-credential">Aviation-trained asset care specialist</div>
-      <a href="tel:7027633539" class="footer-row"><div class="f-ico">✆</div>702-763-3539</a>
-      <a href="https://www.tiktok.com/@atlas.studio1" target="_blank" class="footer-row"><div class="f-ico">♪</div>@atlas.studio1</a>
-      <a href="https://instagram.com/AtlasStudioDetailing" target="_blank" class="footer-row"><div class="f-ico">◈</div>@AtlasStudioDetailing</a>
-    </div>
-    <div><div class="footer-head">Services</div><ul class="footer-list"><li><a href="services.html">Paint Correction Reset</a></li><li><a href="services.html">Interior Reset</a></li><li><a href="services.html">The Full Reset</a></li><li><a href="services.html">Maintenance Plans</a></li></ul></div>
-    <div><div class="footer-head">Explore</div><ul class="footer-list"><li><a href="gallery.html">Gallery</a></li><li><a href="blog.html">Journal</a></li><li><a href="shop.html">Shop</a></li><li><a href="content.html">Content</a></li></ul></div>
-    <div><div class="footer-head">Connect</div><ul class="footer-list"><li><a href="sms:7027633539">Text Us</a></li><li><a href="tel:7027633539">Call Us</a></li><li><a href="booking.html">Book a Reset</a></li><li><a href="https://www.tiktok.com/@atlas.studio1" target="_blank">TikTok</a></li><li><a href="https://instagram.com/AtlasStudioDetailing" target="_blank">Instagram</a></li></ul></div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Atlas Studio Detailing · Las Vegas, NV · Not a car wash. Asset protection.</div>
-    <a href="tel:7027633539" class="footer-tel">702-763-3539</a>
-  </div>
-</footer>
+<footer><div class="footer-grid"><div><div class="footer-brand">Atlas <span>Studio</span> Detailing</div><p class="footer-tag">Mobile paint correction and interior restoration. Las Vegas, Henderson, Summerlin, and surrounding areas.</p><div class="footer-credential">Aviation-trained asset care specialist</div><a href="tel:7027633539" class="footer-row"><div class="f-ico">✆</div>702-763-3539</a><a href="https://www.tiktok.com/@atlas.studio1" target="_blank" class="footer-row"><div class="f-ico">♪</div>@atlas.studio1</a><a href="https://instagram.com/AtlasStudioDetailing" target="_blank" class="footer-row"><div class="f-ico">◈</div>@AtlasStudioDetailing</a><a href="https://yelp.to/VJHCYR6-HA" target="_blank" class="footer-row"><div class="f-ico">★</div>Atlas Studio on Yelp</a><a href="https://www.youtube.com/@AtlasStudioDetailing" target="_blank" class="footer-row"><div class="f-ico">▶</div>YouTube</a></div><div><div class="footer-head">Services</div><ul class="footer-list"><li><a href="services.html">Level 1 — Refresh</a></li><li><a href="services.html">Level 2 — Enhancement</a></li><li><a href="services.html">Level 3 — Paint Correction</a></li><li><a href="services.html">Level 4 — Ceramic Coating</a></li><li><a href="services.html">Maintenance Plans</a></li></ul></div><div><div class="footer-head">Explore</div><ul class="footer-list"><li><a href="gallery.html">Gallery</a></li><li><a href="blog.html">Journal</a></li><li><a href="shop.html">Shop</a></li><li><a href="content.html">Content</a></li></ul></div><div><div class="footer-head">Connect</div><ul class="footer-list"><li><a href="sms:7027633539">Text Us</a></li><li><a href="tel:7027633539">Call Us</a></li><li><a href="booking.html">Book a Reset</a></li><li><a href="https://www.youtube.com/@AtlasStudioDetailing" target="_blank">YouTube</a></li><li><a href="https://instagram.com/AtlasStudioDetailing" target="_blank">Instagram</a></li><li><a href="https://yelp.to/VJHCYR6-HA" target="_blank">Yelp</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">© 2026 Atlas Studio Detailing · Las Vegas, NV · Not a car wash. Asset protection.</div><a href="tel:7027633539" class="footer-tel">702-763-3539</a></div></footer>
 <script>// ═══════════════════════════════════════
 // ATLAS STUDIO — SHARED JS v3.0
 // ═══════════════════════════════════════
